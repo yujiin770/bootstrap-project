@@ -1,0 +1,176 @@
+   /* --- CORE COLOR PALETTE (Light Mode) --- */
+        :root {
+            --bs-primary: #0d1b2a;       /* Navy Blue */
+            --bs-secondary: #800000;     /* Maroon */
+            --bs-info: #00b4d8;          /* Teal (Accent) */
+            --bs-light: #f8f9fa;         /* Light Gray (Background) */
+            --bs-dark: #212529;          /* Charcoal (Text Dark) */
+            --bs-white: #ffffff;         /* White */
+            
+            --bs-body-font-family: 'Poppins', sans-serif;
+            --bs-body-bg: var(--bs-light);
+            --bs-body-color: var(--bs-dark);
+            
+            --card-bg: var(--bs-white);
+            --nav-bg: #0d1b2a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 76px; 
+        }
+        
+        body {
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR SMART SCROLL (Hide on scroll down) --- */
+        .navbar { 
+            background-color: var(--nav-bg); 
+            transition: transform 0.3s ease-in-out, background-color 0.4s; 
+        }
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+        .navbar-brand { font-weight: 700; color: #fff !important; }
+        .nav-link { color: rgba(255,255,255,0.7) !important; font-weight: 500; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--bs-info) !important; }
+
+        /* --- PRE-LOADER --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bs-primary);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999; transition: opacity 0.5s ease;
+        }
+        .spinner {
+            width: 60px; height: 60px;
+            border: 6px solid rgba(0, 180, 216, 0.2);
+            border-top: 6px solid var(--bs-info);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* --- HEADER CAROUSEL --- */
+        .carousel-header { height: 100vh; }
+        .carousel-item img {
+            height: 100vh; object-fit: cover; filter: brightness(0.4); 
+        }
+        .carousel-caption { bottom: 30%; text-align: center; }
+
+        /* --- CARDS & TYPOGRAPHY --- */
+        .card { 
+            background-color: var(--card-bg); border: none; border-radius: 12px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, background-color 0.4s; 
+        }
+        .card:hover { transform: translateY(-5px); }
+        .section-title { color: var(--bs-secondary); font-weight: 700; margin-bottom: 1rem; transition: color 0.4s; }
+
+        /* --- GALLERY --- */
+        .gallery-item {
+            position: relative; overflow: hidden; border-radius: 10px;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        /* --- TABS (Fixed Visibility & Border) --- */
+        .nav-tabs .nav-link { 
+            color: var(--bs-secondary) !important; /* Forces Maroon color */
+            font-weight: 600; 
+            border: none !important; /* Fixed border syntax so it shows */
+            margin: 0 5px; /* Adds a little spacing between tabs */
+        }
+        
+        .nav-tabs .nav-link.active { 
+            background-color: var(--bs-info) !important; 
+            color: #ffffff !important; 
+            border-radius: 5px; 
+            border-color: var(--bs-info) !important; /* Matches border to active background */
+        }
+
+        /* --- TABS DARK MODE FIX (So text doesn't disappear) --- */
+        .dark-mode .nav-tabs .nav-link {
+            color: #e0e0e0 !important; /* Changes text to Light Gray in dark mode */
+            border-color: #555 !important; /* Changes border to gray so it's not aggressively red */
+        }
+        .dark-mode .nav-tabs .nav-link.active {
+            color: #ffffff !important;
+            background-color: var(--bs-info) !important;
+            border-color: var(--bs-info) !important;
+        }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--bs-primary); color: rgba(255,255,255,0.7); }
+        footer a { color: var(--bs-info); transition: 0.3s; }
+        footer a:hover { color: #fff; }
+
+        /* =========================================
+           DARK MODE STYLES (Comprehensive Fix)
+           ========================================= */
+        .dark-mode {
+            --bs-body-bg: #121212;
+            --bs-body-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+        }
+        
+        .dark-mode body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+        }
+
+        /* Background & Text Overrides */
+        .dark-mode .bg-light { background-color: #1a1a1a !important; }
+        .dark-mode .text-muted { color: #aaaaaa !important; }
+        .dark-mode .section-title { color: #ff6666 !important; } /* Lighter maroon for dark bg */
+        .dark-mode .text-primary { color: #66b2ff !important; } /* Lighter blue */
+        .dark-mode .text-dark { color: #e0e0e0 !important; }
+
+          .tooltip-inner {
+            background-color: var(--bs-info) !important; /* Changes background to Teal */
+            color: #ffffff !important; /* Pure white text */
+            font-weight: 600 !important; /* Slightly bolder so it's easy to read */
+            padding: 8px 12px !important;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+        }
+
+        /* Fix the little pointing arrow to match the Teal background */
+        .bs-tooltip-top .tooltip-arrow::before, 
+        .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+            border-top-color: var(--bs-info) !important;
+        }
+        .bs-tooltip-bottom .tooltip-arrow::before, 
+        .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+            border-bottom-color: var(--bs-info) !important;
+        }
+
+        /* Card Overrides */
+        .dark-mode .card { background-color: var(--card-bg) !important; border: 1px solid #333; }
+        .dark-mode .card * { color: #e0e0e0; }
+        .dark-mode .card .text-info { color: var(--bs-info) !important; } /* Retain teal icons */
+        
+        /* Accordion Overrides */
+        .dark-mode .accordion-item { background-color: #1e1e1e; border: 1px solid #333; }
+        .dark-mode .accordion-button { background-color: #2a2a2a; color: #fff; }
+        .dark-mode .accordion-button:not(.collapsed) { background-color: #0d1b2a; color: #00b4d8; }
+        .dark-mode .accordion-body { color: #e0e0e0; background-color: #1e1e1e; }
+
+        /* Form Inputs Overrides */
+        .dark-mode input, .dark-mode textarea {
+            background-color: #2a2a2a !important; color: #fff !important; border: 1px solid #444 !important;
+        }
+        .dark-mode input::placeholder, .dark-mode textarea::placeholder { color: #888 !important; }
+
+        /* Offcanvas & Dropdowns */
+        .dark-mode .offcanvas { background-color: #1e1e1e; color: #e0e0e0; }
+        .dark-mode .offcanvas-header { border-bottom: 1px solid #333 !important; }
+        .dark-mode .dropdown-menu { background-color: #2a2a2a; }
+        .dark-mode .dropdown-item { color: #e0e0e0; }
+        .dark-mode .dropdown-item:hover { background-color: #3a3a3a; color: #fff; }
+
+        /* Tabs */
+        .dark-mode .nav-tabs .nav-link { color: #e0e0e0; }
+        .dark-mode .nav-tabs .nav-link.active { color: #fff !important; }

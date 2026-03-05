@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Visionary · UI/UX Portfolio</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav">
+
+    <!-- 13. PRELOADER -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- A. NAVIGATION BAR -->
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#home"><i class="fas fa-laptop-code me-2"></i>Visionary</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    
+                    <!-- 5. DROPDOWN -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu shadow">
+                            <li><a class="dropdown-item" href="#plugins">View Plugins</a></li>
+                            <li><a class="dropdown-item" href="#portfolio">Our Designs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#plugins">Plugins Set</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    
+                    <!-- Bonus: Dark Mode Toggle -->
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <button id="darkModeToggle" class="btn btn-outline-info btn-sm rounded-pill px-3">
+                            <i class="fas fa-moon"></i> Dark Mode
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- B. HEADER SECTION (Carousel Header) -->
+    <header id="home" class="carousel slide carousel-fade carousel-header" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#home" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#home" data-bs-slide-to="1"></button>
+        </div>
+        <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100" data-bs-interval="4000">
+                <img src="https://picsum.photos/id/1043/1920/1080" class="d-block w-100" alt="Workspace">
+                <div class="carousel-caption">
+                    <h1 class="display-3 fw-bold text-info text-uppercase" data-aos="fade-down">Bootstrap Mastery</h1>
+                    <p class="lead fs-4 mb-4 text-light" data-aos="fade-up" data-aos-delay="200">A completely responsive system showcasing robust UI/UX design.</p>
+                    <!-- 2. BUTTON -->
+                    <a href="#portfolio" class="btn btn-info btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold text-white" data-aos="zoom-in" data-aos-delay="400">View Our Work</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item h-100" data-bs-interval="4000">
+                <img src="https://picsum.photos/id/20/1920/1080" class="d-block w-100" alt="Design">
+                <div class="carousel-caption">
+                    <h1 class="display-3 fw-bold text-info text-uppercase">Creative Excellence</h1>
+                    <p class="lead fs-4 mb-4 text-light">We solve real-world problems through intuitive modern designs.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold text-white">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header>
+
+    <!-- 1. ALERT -->
+    <div class="container mt-4">
+        <div class="alert alert-info alert-dismissible fade show shadow-sm border-0 border-start border-info border-5 text-dark" role="alert" data-aos="fade-right">
+            <i class="fas fa-bell me-2"></i>
+            <strong>System Notification:</strong> All 13 requested Bootstrap plugins are actively integrated into this layout!
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">Who We Are</h2>
+                    <p class="mb-4 text-muted">We are a passionate team of developers pushing the boundaries of what is possible on the web using modern frameworks.</p>
+                    
+                    <!-- 4. COLLAPSE (Accordion) -->
+                    <div class="accordion shadow-sm" id="aboutAccordion">
+                        <div class="accordion-item border-0 mb-2 rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Our Mission
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">To deliver exceptional digital products that solve problems through beautiful design.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-2 rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Our Vision
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                                <div class="accordion-body">To be the global standard in creative UI/UX web solutions.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. OFFCANVAS Trigger -->
+                    <button class="btn btn-primary mt-4 px-4 py-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#historyOffcanvas">
+                        <i class="fas fa-history me-2"></i> Read Company History
+                    </button>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://picsum.photos/id/48/800/600" alt="About Us" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / GALLERY -->
+    <section id="portfolio" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Project Gallery</h2>
+                <p class="text-muted">Explore our 10 beautifully curated high-resolution projects.</p>
+            </div>
+
+            <!-- 10. TAB -->
+            <ul class="nav nav-tabs justify-content-center mb-4 border-0" id="galleryTabs" role="tablist" data-aos="zoom-in">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active shadow-sm mx-1" data-bs-toggle="tab" data-bs-target="#all">All Works</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link shadow-sm mx-1" data-bs-toggle="tab" data-bs-target="#nature">Nature</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="galleryTabContent">
+                <!-- ALL WORKS TAB -->
+                <div class="tab-pane fade show active" id="all">
+                    <div class="row g-4">
+                        <!-- 12. TOOLTIP triggers -->
+                        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Parrot" onclick="openModal('images/1.jpg')"><img src="images/1.jpg" alt="Img 1"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Berries" onclick="openModal('images/2.jpg')"><img src="images/2.jpg" alt="Img 2"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Shoes" onclick="openModal('images/3.jpg')"><img src="images/3.jpg" alt="Img 3"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Dreamer" onclick="openModal('images/4.jpeg')"><img src="images/4.jpeg" alt="Img 4"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="250">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Flowers" onclick="openModal('images/7.png')"><img src="images/7.png" alt="Img 5"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Prairie" onclick="openModal('images/8.jpg')"><img src="images/8.jpg" alt="Img 6"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="350">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Ocean Coast" onclick="openModal('images/9.jpg')"><img src="images/9.jpg" alt="Img 7"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Dog" onclick="openModal('images/10.jpg')"><img src="images/10.jpg" alt="Img 8"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="450">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Train" onclick="openModal('images/large_banner_1920x600_124kb.jpg')"><img src="images/large_banner_1920x600_124kb.jpg" alt="Img 9"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="gallery-item" data-bs-toggle="tooltip" title="Enlarge: Desk" onclick="openModal('images/web_optimized_1200x800_97kb.jpg')"><img src="images/web_optimized_1200x800_97kb.jpg" alt="Img 10"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NATURE TAB -->
+                <div class="tab-pane fade" id="nature">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6"><div class="gallery-item" onclick="openModal('images/1.jpg')"><img src="images/1.jpg" alt="Nature 1"></div></div>
+                        <div class="col-lg-4 col-md-6"><div class="gallery-item" onclick="openModal('images/2.jpg')"><img src="images/2.jpg" alt="Nature 2"></div></div>
+                        <div class="col-lg-4 col-md-6"><div class="gallery-item" onclick="openModal('images/9.jpg')"><img src="images/9.jpg" alt="Nature 3"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPREHENSIVE SET OF PLUGINS SECTION -->
+    <section id="plugins" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Comprehensive Set of Plugins</h2>
+                <p class="text-muted">A verification dashboard showing all 13 requested Bootstrap 5 plugins functioning seamlessly.</p>
+            </div>
+            
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6" data-aos="zoom-in"><div class="card p-3 h-100"><i class="fas fa-exclamation-triangle fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">1. Alert</h5><small class="text-muted">Below Header</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="50"><div class="card p-3 h-100"><i class="fas fa-hand-pointer fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">2. Button</h5><small class="text-muted">Global UI</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="card p-3 h-100"><i class="fas fa-images fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">3. Carousel</h5><small class="text-muted">Header Area</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="150"><div class="card p-3 h-100"><i class="fas fa-compress-alt fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">4. Collapse</h5><small class="text-muted">About Section</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="card p-3 h-100"><i class="fas fa-caret-down fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">5. Dropdown</h5><small class="text-muted">Navbar</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="250"><div class="card p-3 h-100"><i class="fas fa-window-maximize fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">6. Modal</h5><small class="text-muted">Image Preview</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="card p-3 h-100"><i class="fas fa-columns fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">7. Offcanvas</h5><small class="text-muted">History Panel</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="350"><div class="card p-3 h-100"><i class="fas fa-comment fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">8. Popover</h5><small class="text-muted">Contact Form</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400"><div class="card p-3 h-100"><i class="fas fa-eye fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">9. Scrollspy</h5><small class="text-muted">Active Nav</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="450"><div class="card p-3 h-100"><i class="fas fa-folder fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">10. Tab</h5><small class="text-muted">Gallery Filters</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="500"><div class="card p-3 h-100"><i class="fas fa-bread-slice fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">11. Toast</h5><small class="text-muted">Newsletter</small></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="550"><div class="card p-3 h-100"><i class="fas fa-info-circle fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">12. Tooltip</h5><small class="text-muted">Hover Hints</small></div></div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4 col-8" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card p-3 text-center h-100 border-info border-2 shadow-lg">
+                        <i class="fas fa-spinner fa-2x mb-2 text-info"></i><h5 class="fw-bold text-dark">13. Pre-loader</h5><small class="text-muted">On Page Load</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E. CONTACT / FOOTER SECTION -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7" data-aos="fade-up">
+                    <div class="card p-4 p-md-5">
+                        <h3 class="mb-4 fw-bold text-primary">Get In Touch</h3>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">Your Name</label>
+                                    <input type="text" class="form-control py-2" required placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold text-dark">
+                                        Email Address
+                                        <!-- 8. POPOVER -->
+                                        <i class="fas fa-question-circle text-info ms-1" style="cursor: pointer;" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="We respect your privacy. No spam ever."></i>
+                                    </label>
+                                    <input type="email" class="form-control py-2" required placeholder="john@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold text-dark">Your Message</label>
+                                    <textarea class="form-control py-2" rows="5" required placeholder="How can we help you?"></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-secondary w-100 py-3 fw-bold rounded-pill text-white">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Newsletter / Info (Toast Trigger) -->
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card bg-primary text-white p-5 h-100 d-flex flex-column justify-content-center" style="background-color: var(--bs-primary) !important;">
+                        <h3 class="fw-bold text-info mb-3">Join Our Newsletter</h3>
+                        <p class="mb-4 text-light">Subscribe to receive the latest updates, design tips, and studio news directly to your inbox.</p>
+                        
+                        <div class="input-group mb-4 shadow-sm">
+                            <input type="email" class="form-control py-2 border-0" placeholder="Email address" id="newsletterEmail">
+                            <!-- 11. TOAST trigger button -->
+                            <button class="btn btn-info px-4 fw-bold text-white" type="button" id="newsletterBtn">Subscribe</button>
+                        </div>
+                        
+                        <hr class="border-light opacity-25">
+                        <div class="d-flex align-items-center mb-3 mt-3">
+                            <i class="fas fa-map-marker-alt fs-4 me-3 text-info"></i>
+                            <span class="text-white">123 Creative Studio Blvd, Design City</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-phone-alt fs-4 me-3 text-info"></i>
+                            <span class="text-white">+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-md-start border-top border-dark">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 class="fw-bold text-white mb-0"><i class="fas fa-laptop-code me-2"></i>Visionary</h5>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <p class="mb-0 text-white-50">&copy; 2026 Visionary Systems. All rights reserved.</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="#" class="text-decoration-none mx-2 fs-5" data-bs-toggle="tooltip" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-decoration-none mx-2 fs-5" data-bs-toggle="tooltip" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-decoration-none mx-2 fs-5" data-bs-toggle="tooltip" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!-- HIDDEN COMPONENTS (Offcanvas, Modal, Toast) -->
+    <!-- ========================================== -->
+
+    <!-- 7. OFFCANVAS Panel -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="historyOffcanvas">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title fw-bold text-primary">Our History</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <img src="https://picsum.photos/id/1043/800/400" alt="History" class="img-fluid rounded mb-4 shadow-sm">
+            <h6 class="fw-bold text-secondary">Established 2015</h6>
+            <p>We started in a small setup with just two laptops and a shared dream. Today, we are a leading agency building digital platforms for clients globally, incorporating cutting edge technologies and flawless UI/UX standards.</p>
+            <button class="btn btn-outline-info w-100 mt-3 fw-bold" data-bs-dismiss="offcanvas">Close Panel</button>
+        </div>
+    </div>
+
+    <!-- 6. MODAL for Image Preview (FIXED CLOSE BUTTON) -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <!-- Dedicated header for the close button to ensure it is always visible -->
+                <div class="modal-header border-0 pb-0 justify-content-end w-100 px-0">
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" style="background-color: rgba(0,0,0,0.6); padding: 12px; border-radius: 50%; z-index: 1060;"></button>
+                </div>
+                <div class="modal-body text-center position-relative pt-2">
+                    <img src="" id="modalImage" class="img-fluid rounded shadow-lg" alt="Preview" style="max-height: 80vh;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. TOAST Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+        <div id="newsletterToast" class="toast align-items-center text-white bg-success border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-bold">
+                    <i class="fas fa-check-circle me-2"></i> Successfully subscribed to newsletter!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+
+   
+</body>
+</html>
