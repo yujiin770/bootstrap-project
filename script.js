@@ -1,12 +1,24 @@
-  // --- 1. PRE-LOADER ---
+// --- 1. FANTASTIC PRE-LOADER & ENTRANCE SEQUENCER ---
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
+            
+            // Wait 1.5s for the user to admire the splash screen
             setTimeout(() => {
                 preloader.style.opacity = '0';
-                setTimeout(() => { preloader.style.display = 'none'; }, 500);
-            }, 300);
+                
+                // THE MAGIC TRIGGER: This adds the class that starts the Navbar & Header animations!
+                document.body.classList.add('loaded');
+                
+                setTimeout(() => { 
+                    preloader.style.visibility = 'hidden'; 
+                    preloader.style.display = 'none'; 
+                    
+                    // Initialize AOS *AFTER* the preloader is gone so scroll animations are perfectly timed
+                    AOS.init({ once: true, offset: 20, duration: 800 });
+                    
+                }, 800); // Wait for the 800ms fade transition to finish
+            }, 1500); 
         });
-
         // --- 2. NAVBAR SMART SCROLL (Hide on Scroll Down) ---
         let lastScrollTop = 0;
         const navbar = document.getElementById('mainNav');
@@ -93,4 +105,26 @@
             if (tooltipInstance) {
                 tooltipInstance.hide();
             }
+        });
+
+        // --- 7. BACK TO TOP BUTTON LOGIC ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        // Show/Hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                // Show button if scrolled down 400px
+                backToTopBtn.classList.add('show');
+            } else {
+                // Hide button if near the top
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });

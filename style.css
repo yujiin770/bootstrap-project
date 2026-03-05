@@ -44,21 +44,159 @@
         .nav-link { color: rgba(255,255,255,0.7) !important; font-weight: 500; transition: 0.3s; }
         .nav-link:hover, .nav-link.active { color: var(--bs-info) !important; }
 
-        /* --- PRE-LOADER --- */
+       /* =========================================
+           FANTASTIC UNIQUE SPLASH SCREEN
+           ========================================= */
         #preloader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--bs-primary);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: var(--bs-primary); /* Deep Navy Blue */
             display: flex; justify-content: center; align-items: center;
-            z-index: 9999; transition: opacity 0.5s ease;
+            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s ease;
         }
-        .spinner {
-            width: 60px; height: 60px;
-            border: 6px solid rgba(0, 180, 216, 0.2);
-            border-top: 6px solid var(--bs-info);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+
+        .loader-wrapper {
+            display: flex; flex-direction: column; align-items: center;
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* The Multi-Layered Orbits */
+        .loader-core {
+            position: relative; width: 100px; height: 100px; margin-bottom: 25px;
+        }
+        .orbit {
+            position: absolute; border-radius: 50%;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+        }
+        
+        /* Outer Teal Ring */
+        .orbit-1 {
+            width: 100px; height: 100px;
+            border: 2px solid rgba(0, 180, 216, 0.1);
+            border-top: 2px solid var(--bs-info);
+            border-bottom: 2px solid var(--bs-info);
+            animation: spin 2s linear infinite;
+        }
+        
+        /* Middle Maroon Dashed Ring */
+        .orbit-2 {
+            width: 75px; height: 75px;
+            border: 2px dashed var(--bs-secondary);
+            animation: spin-reverse 4s linear infinite;
+        }
+        
+        /* Inner White Ring */
+        .orbit-3 {
+            width: 50px; height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-left: 2px solid #ffffff;
+            animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        /* Center Glowing Camera Icon */
+        .center-icon {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px; color: var(--bs-info);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Cinematic Text Reveal */
+        .loader-text {
+            color: #ffffff; font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem; font-weight: 600; letter-spacing: 8px;
+            text-transform: uppercase; margin-left: 8px; /* Offset for letter-spacing */
+            animation: text-glow 2s ease-in-out infinite;
+        }
+
+        /* Sleek Scanning Loading Line */
+        .loader-bar {
+            width: 140px; height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 15px; position: relative; overflow: hidden;
+            border-radius: 2px;
+        }
+        .loader-bar::after {
+            content: ''; position: absolute; left: -50%; top: 0;
+            height: 100%; width: 50%;
+            background: var(--bs-info);
+            box-shadow: 0 0 10px var(--bs-info);
+            animation: slide-bar 1.5s ease-in-out infinite;
+        }
+
+        /* Keyframes */
+        @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+        @keyframes pulse-glow { 
+            0%, 100% { text-shadow: 0 0 5px rgba(0,180,216,0.5); transform: translate(-50%, -50%) scale(1); } 
+            50% { text-shadow: 0 0 20px rgba(0,180,216,1); transform: translate(-50%, -50%) scale(1.1); } 
+        }
+        @keyframes text-glow { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; text-shadow: 0 0 10px rgba(0,180,216,0.8); } }
+        @keyframes slide-bar { 0% { left: -50%; } 100% { left: 100%; } }
+
+          .navbar.fixed-top { 
+            background-color: var(--nav-bg); 
+        }
+
+        /* 1. Hide the Navbar completely while Preloader is playing */
+        body:not(.loaded) .navbar.fixed-top {
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: none !important; /* Forces it to stay hidden without glitching */
+        }
+
+        /* 2. The Fantastic Entrance Animation (Slow, luxurious drop) */
+        body.loaded .navbar.fixed-top {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, background-color 0.4s;
+        }
+
+        /* 3. The Smart Scroll Hide (Faster slide up when scrolling down) */
+        body.loaded .navbar.fixed-top.navbar-hidden {
+            transform: translateY(-100%);
+            /* Switches to a faster animation when you are scrolling */
+            transition: transform 0.4s ease-in-out, background-color 0.4s; 
+        }
+
+          /* 1. Navbar Smooth Drop */
+        body:not(.loaded) #mainNav {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
+        body.loaded #mainNav {
+            /* Drops down with a beautiful sleek deceleration */
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, background-color 0.4s;
+        }
+
+        /* 2. Initial Hidden States for Header */
+        body:not(.loaded) .hero-title-anim { opacity: 0; transform: scale(1.1); filter: blur(15px); letter-spacing: 25px; }
+        body:not(.loaded) .hero-sub-anim { opacity: 0; transform: translateY(40px); }
+        body:not(.loaded) .hero-btn-anim { opacity: 0; transform: scale(0.5); }
+
+        /* 3. The Sequential Triggers */
+        body.loaded .hero-title-anim {
+            animation: cinematicTitle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        }
+        body.loaded .hero-sub-anim {
+            animation: fadeUpSub 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+        }
+        body.loaded .hero-btn-anim {
+            /* Spring physics pop-in */
+            animation: popInBtn 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s forwards; 
+        }
+
+        /* 4. The Keyframes */
+        @keyframes cinematicTitle {
+            0% { opacity: 0; transform: scale(1.1); filter: blur(15px); letter-spacing: 25px; }
+            100% { opacity: 1; transform: scale(1); filter: blur(0); letter-spacing: normal; }
+        }
+        @keyframes fadeUpSub {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes popInBtn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
         /* --- HEADER CAROUSEL --- */
         .carousel-header { height: 100vh; }
@@ -178,6 +316,26 @@
         .dark-mode .dropdown-item { color: #e0e0e0; }
         .dark-mode .dropdown-item:hover { background-color: #3a3a3a; color: #fff; }
 
+         .dark-mode .alert-info {
+            background-color: #0c2b36 !important; /* Deep dark teal background */
+            color: #e0e0e0 !important; /* Light gray text */
+        }
+        
+        /* Override the hardcoded 'text-dark' class */
+        .dark-mode .alert-info.text-dark {
+            color: #e0e0e0 !important; 
+        }
+
+        /* Make the bold text pop with your accent color */
+        .dark-mode .alert-info strong {
+            color: var(--bs-info) !important; 
+        }
+
+        /* Make the 'X' close button white so it's visible */
+        .dark-mode .alert-info .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
         /* Tabs */
         .dark-mode .nav-tabs .nav-link { color: #e0e0e0; }
         .dark-mode .nav-tabs .nav-link.active { color: #fff !important; }
@@ -189,6 +347,42 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+        }
+
+        /* =========================================
+           BACK TO TOP BUTTON
+           ========================================= */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1040; /* High enough to be over content, but below Modals */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+        }
+
+        /* Class added by JS when scrolled down */
+        #backToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Hover effect */
+        #backToTopBtn:hover {
+            background-color: var(--bs-primary);
+            color: var(--bs-info) !important;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
         }
 
             @media (max-width: 768px) {

@@ -22,8 +22,21 @@
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav">
 
-    <!-- 13. PRELOADER -->
-    <div id="preloader"><div class="spinner"></div></div>
+    <div id="preloader">
+        <div class="loader-wrapper">
+            <!-- Rotating Orbits & Center Icon -->
+            <div class="loader-core">
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <i class="fas fa-camera-retro center-icon"></i>
+            </div>
+            <!-- Cinematic Text -->
+            <div class="loader-text">VISIONARY</div>
+            <!-- Scanning Progress Bar -->
+            <div class="loader-bar"></div>
+        </div>
+    </div>
 
     <!-- A. NAVIGATION BAR -->
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top shadow">
@@ -68,14 +81,18 @@
             <button type="button" data-bs-target="#home" data-bs-slide-to="1"></button>
         </div>
         <div class="carousel-inner h-100">
-            <!-- Slide 1 -->
+       <!-- Slide 1 -->
             <div class="carousel-item active h-100" data-bs-interval="4000">
                 <img src="https://picsum.photos/id/1043/1920/1080" class="d-block w-100" alt="Workspace">
                 <div class="carousel-caption">
-                    <h1 class="display-3 fw-bold text-info text-uppercase" data-aos="fade-down">Bootstrap Mastery</h1>
-                    <p class="lead fs-4 mb-4 text-light" data-aos="fade-up" data-aos-delay="200">A completely responsive system showcasing robust UI/UX design.</p>
-                    <!-- 2. BUTTON -->
-                    <a href="#portfolio" class="btn btn-info btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold text-white" data-aos="zoom-in" data-aos-delay="400">View Our Work</a>
+                    <!-- Added hero-title-anim -->
+                    <h1 class="display-3 fw-bold text-info text-uppercase hero-title-anim">Bootstrap Mastery</h1>
+                    
+                    <!-- Added hero-sub-anim -->
+                    <p class="lead fs-4 mb-4 text-light hero-sub-anim">A completely responsive system showcasing robust UI/UX design.</p>
+                    
+                    <!-- Added hero-btn-anim -->
+                    <a href="#portfolio" class="btn btn-info btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold text-white hero-btn-anim">View Our Work</a>
                 </div>
             </div>
             <!-- Slide 2 -->
@@ -373,6 +390,13 @@
             </div>
         </div>
     </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTopBtn" class="btn btn-info rounded-circle shadow-lg text-white" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+  
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
