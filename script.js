@@ -68,13 +68,29 @@
 
         // --- 6. DARK MODE TOGGLE ---
         const darkModeBtn = document.getElementById('darkModeToggle');
+        
         darkModeBtn.addEventListener('click', () => {
+            // Toggle the dark-mode class on the body
             document.body.classList.toggle('dark-mode');
-            if(document.body.classList.contains('dark-mode')) {
-                darkModeBtn.innerHTML = '<i class="fas fa-sun text-warning"></i> Light Mode';
+            const isDark = document.body.classList.contains('dark-mode');
+            
+            // 1. Change the Icon
+            if (isDark) {
+                darkModeBtn.innerHTML = '<i class="fas fa-sun text-warning fs-5"></i>';
                 darkModeBtn.classList.replace('btn-outline-info', 'btn-outline-light');
             } else {
-                darkModeBtn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                darkModeBtn.innerHTML = '<i class="fas fa-moon fs-5"></i>';
                 darkModeBtn.classList.replace('btn-outline-light', 'btn-outline-info');
+            }
+
+            // 2. Change the Tooltip Text
+            const newTooltipText = isDark ? 'Enable Light Mode' : 'Enable Dark Mode';
+            darkModeBtn.setAttribute('data-bs-original-title', newTooltipText);
+            darkModeBtn.setAttribute('title', newTooltipText);
+
+            // 3. Hide the tooltip momentarily so it resets nicely
+            const tooltipInstance = bootstrap.Tooltip.getInstance(darkModeBtn);
+            if (tooltipInstance) {
+                tooltipInstance.hide();
             }
         });

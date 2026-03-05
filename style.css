@@ -25,6 +25,13 @@
             overflow-x: hidden;
         }
 
+          html, body {
+            overflow-x: hidden !important;
+            max-width: 100%;
+            width: 100%;
+            position: relative;
+        }
+
         /* --- NAVBAR SMART SCROLL (Hide on scroll down) --- */
         .navbar { 
             background-color: var(--nav-bg); 
@@ -174,3 +181,30 @@
         /* Tabs */
         .dark-mode .nav-tabs .nav-link { color: #e0e0e0; }
         .dark-mode .nav-tabs .nav-link.active { color: #fff !important; }
+          .btn-theme-toggle {
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+            @media (max-width: 768px) {
+            .carousel-caption h1.display-3 {
+                font-size: 2.2rem !important; /* Shrinks BOOTSTRAP MASTERY */
+                word-wrap: break-word;
+            }
+            .carousel-caption p.lead {
+                font-size: 1rem !important; /* Shrinks the paragraph */
+                padding: 0 10px; /* Adds breathing room on the sides */
+            }
+            .carousel-caption {
+                bottom: 15%; /* Lowers the text so it isn't blocking the image center */
+            }
+            .btn-lg {
+                padding: 10px 30px !important;
+                font-size: 1rem !important;
+            }
+        }
