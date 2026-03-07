@@ -227,52 +227,236 @@
         </div>
     </div>
 
-    <!-- ABOUT SECTION with 3D Transform -->
-    <section id="about" class="py-5 cosmic-section">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="cosmic-right">
-                    <h2 class="section-title quantum-title">Who We Are</h2>
-                    <p class="mb-4 text-muted cosmic-text">We are a passionate team of developers pushing the boundaries of what is possible on the web using modern frameworks.</p>
+    <!-- Replace existing about section with this -->
+<section id="about" class="cosmic-odyssey">
+    <!-- Background cosmic dust -->
+    <div class="odyssey-dust"></div>
+    
+    <!-- Floating orrery (3D planets) -->
+    <div class="orrery-container">
+        <div class="orrery">
+            <div class="planet-sun"></div>
+            <div class="planet-orbit orbit-1">
+                <div class="planet" data-planet="mercury"></div>
+            </div>
+            <div class="planet-orbit orbit-2">
+                <div class="planet" data-planet="venus"></div>
+            </div>
+            <div class="planet-orbit orbit-3">
+                <div class="planet earth" data-planet="earth"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Section Title with Galaxy Effect -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="galaxy-spiral">
+                <div class="cosmic-badge">
+                    <span class="badge-star">✦</span>
+                    <span class="badge-text">OUR COSMIC STORY</span>
+                    <span class="badge-star">✦</span>
+                </div>
+                <h2 class="galaxy-title">
+                    <span class="title-word" data-word="DISCOVER">DISCOVER</span>
+                    <span class="title-word" data-word="THE">THE</span>
+                    <span class="title-word gradient-word" data-word="VOYAGE">VOYAGE</span>
+                </h2>
+                <div class="title-divider">
+                    <span class="divider-star"></span>
+                    <span class="divider-line"></span>
+                    <span class="divider-star"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main About Content - Split into Two Cosmic Columns -->
+        <div class="row g-5 align-items-center cosmic-story-row">
+            <!-- Left Column - Holographic Profile Card -->
+            <div class="col-lg-6 cosmic-profile-col" data-aos="quantum-rotate">
+                <div class="holographic-card">
+                    <!-- Holographic layers -->
+                    <div class="holo-layer layer-1"></div>
+                    <div class="holo-layer layer-2"></div>
+                    <div class="holo-layer layer-3"></div>
                     
-                    <!-- 4. COLLAPSE (Accordion) with Quantum Effect -->
-                    <div class="accordion quantum-accordion shadow-lg" id="aboutAccordion">
-                        <div class="accordion-item border-0 mb-2 rounded cosmic-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed rounded fw-bold cosmic-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    <i class="fas fa-rocket me-2"></i> Our Mission
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-                                <div class="accordion-body cosmic-accordion-body">To deliver exceptional digital products that solve problems through beautiful design.</div>
+                    <!-- Main content -->
+                    <div class="holo-content">
+                        <!-- Profile header with rotating elements -->
+                        <div class="profile-header">
+                            <div class="profile-avatar-container">
+                                <div class="avatar-ring"></div>
+                                <div class="avatar-ring delay-1"></div>
+                                <div class="avatar-ring delay-2"></div>
+                                <img src="images/jinyu.jpg" alt="Team" class="profile-avatar">
+                                <div class="avatar-energy"></div>
+                            </div>
+                            
+                            <div class="profile-title">
+                                <h3 class="glitch-name" data-text="NEBULA COLLECTIVE">NEBULA COLLECTIVE</h3>
+                                <div class="title-underline"></div>
+                                <p class="profile-tagline">Digital Universe Architects</p>
                             </div>
                         </div>
-                        <div class="accordion-item border-0 mb-2 rounded cosmic-accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed rounded fw-bold cosmic-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    <i class="fas fa-eye me-2"></i> Our Vision
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
-                                <div class="accordion-body cosmic-accordion-body">To be the global standard in creative UI/UX web solutions.</div>
+                        
+                        <!-- Stats with animated counters -->
+                        <div class="cosmic-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="8">0</div>
+                                <div class="stat-label">Years Journey</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="150">0</div>
+                                <div class="stat-label">Galaxies Explored</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-target="24">0</div>
+                                <div class="stat-label">Constellations</div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bio with floating words -->
+                        <div class="cosmic-bio">
+                            <p class="bio-text">
+                                We are a passionate team of developers pushing the boundaries of what is possible on the web using modern frameworks. 
+                                <span class="floating-word">✦ INNOVATION ✦</span>
+                                Our journey began in a small nebula, now we span across the digital universe.
+                                <span class="floating-word">✦ CREATIVITY ✦</span>
+                            </p>
+                        </div>
+                        
+                        <!-- Interactive timeline preview -->
+                        <div class="timeline-preview">
+                            <div class="timeline-dot active" data-year="2018">
+                                <span class="dot-year">2018</span>
+                                <span class="dot-label">Birth</span>
+                            </div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot" data-year="2020">
+                                <span class="dot-year">2020</span>
+                                <span class="dot-label">First Light</span>
+                            </div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot" data-year="2023">
+                                <span class="dot-year">2023</span>
+                                <span class="dot-label">Supernova</span>
+                            </div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot" data-year="2026">
+                                <span class="dot-year">2026</span>
+                                <span class="dot-label">Nebula</span>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA with wormhole effect -->
+                        <button class="wormhole-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#historyOffcanvas">
+                            <span class="btn-content">View Full History</span>
+                            <span class="btn-wormhole"></span>
+                            <span class="btn-particles"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - 3D Experience Cards -->
+            <div class="col-lg-6 cosmic-experience-col" data-aos="quantum-rotate-reverse">
+                <!-- Mission Card - 3D Flip -->
+                <div class="experience-card mission-card" id="missionCard">
+                    <div class="card-inner">
+                        <!-- Front -->
+                        <div class="card-front">
+                            <div class="card-glow"></div>
+                            <i class="fas fa-rocket card-icon"></i>
+                            <h4>Our Mission</h4>
+                            <p>To deliver exceptional digital products that solve problems through beautiful design.</p>
+                            <div class="card-shimmer"></div>
+                        </div>
+                        <!-- Back -->
+                        <div class="card-back">
+                            <div class="back-content">
+                                <i class="fas fa-star"></i>
+                                <h5>2026 Vision</h5>
+                                <p>Reach 1M users with our cosmic designs</p>
+                                <div class="progress-ring">
+                                    <svg>
+                                        <circle class="progress-circle" cx="50" cy="50" r="45"></circle>
+                                    </svg>
+                                    <span class="progress-text">75%</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- 7. OFFCANVAS Trigger with Magnetic Effect -->
-                    <button class="btn btn-primary mt-4 px-4 py-2 cosmic-offcanvas-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#historyOffcanvas">
-                        <i class="fas fa-history me-2"></i> Read Company History
-                    </button>
                 </div>
-                <div class="col-lg-6" data-aos="cosmic-left">
-                    <div class="cosmic-image-wrapper">
-                        <img src="https://picsum.photos/id/48/800/600" alt="About Us" class="img-fluid rounded shadow-lg cosmic-img">
-                        <div class="image-aura"></div>
+
+                <!-- Vision Card - Parallax Layers -->
+                <div class="experience-card vision-card" id="visionCard">
+                    <div class="parallax-layers">
+                        <div class="layer layer-bg"></div>
+                        <div class="layer layer-mid">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="layer layer-front">
+                            <h4>Our Vision</h4>
+                            <p>To be the global standard in creative UI/UX web solutions.</p>
+                            <div class="vision-stats">
+                                <span class="stat">99%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Values Cards - Floating Grid -->
+                <div class="values-grid">
+                    <div class="value-card" data-value="innovation">
+                        <div class="value-icon">
+                            <i class="fas fa-brain"></i>
+                            <div class="icon-ripple"></div>
+                        </div>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="value-card" data-value="quality">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                            <div class="icon-ripple"></div>
+                        </div>
+                        <span>Quality</span>
+                    </div>
+                    <div class="value-card" data-value="passion">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                            <div class="icon-ripple"></div>
+                        </div>
+                        <span>Passion</span>
+                    </div>
+                    <div class="value-card" data-value="future">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                            <div class="icon-ripple"></div>
+                        </div>
+                        <span>Future</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Floating Bottom Elements -->
+        <div class="cosmic-elements">
+            <div class="floating-asteroid"></div>
+            <div class="floating-satellite"></div>
+            <div class="energy-wave"></div>
+        </div>
+    </div>
+</section>
 
     <!-- PORTFOLIO / GALLERY with Quantum Scan Effect -->
     <section id="portfolio" class="py-5 cosmic-section bg-light">
