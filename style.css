@@ -1,404 +1,1909 @@
-   /* --- CORE COLOR PALETTE (Light Mode) --- */
-        :root {
-            --bs-primary: #0d1b2a;       /* Navy Blue */
-            --bs-secondary: #800000;     /* Maroon */
-            --bs-info: #00b4d8;          /* Teal (Accent) */
-            --bs-light: #f8f9fa;         /* Light Gray (Background) */
-            --bs-dark: #212529;          /* Charcoal (Text Dark) */
-            --bs-white: #ffffff;         /* White */
-            
-            --bs-body-font-family: 'Poppins', sans-serif;
-            --bs-body-bg: var(--bs-light);
-            --bs-body-color: var(--bs-dark);
-            
-            --card-bg: var(--bs-white);
-            --nav-bg: #0d1b2a;
-        }
+/* =========================================
+   COSMIC COLOR PALETTE & BASE STYLES
+   ========================================= */
+:root {
+    --cosmic-primary: #0d1b2a;       /* Deep Space Navy */
+    --cosmic-secondary: #800000;      /* Cosmic Maroon */
+    --cosmic-accent: #00b4d8;         /* Nebula Teal */
+    --cosmic-light: #f0f4fa;          /* Starlight */
+    --cosmic-dark: #0a0f1e;           /* Void Black */
+    --cosmic-glow: rgba(0, 180, 216, 0.6);
+    --cosmic-pulse: rgba(128, 0, 0, 0.4);
+    
+    --bs-body-font-family: 'Poppins', sans-serif;
+    --bs-heading-font-family: 'Orbitron', sans-serif;
+}
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 76px; 
-        }
-        
-        body {
-            transition: background-color 0.4s ease, color 0.4s ease;
-            overflow-x: hidden;
-        }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 76px;
+    overflow-x: hidden;
+}
 
-          html, body {
-            overflow-x: hidden !important;
-            max-width: 100%;
-            width: 100%;
-            position: relative;
-        }
+body {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+    background: var(--cosmic-light);
+    position: relative;
+}
 
-        /* --- NAVBAR SMART SCROLL (Hide on scroll down) --- */
-        .navbar { 
-            background-color: var(--nav-bg); 
-            transition: transform 0.3s ease-in-out, background-color 0.4s; 
-        }
-        .navbar-hidden {
-            transform: translateY(-100%);
-        }
-        .navbar-brand { font-weight: 700; color: #fff !important; }
-        .nav-link { color: rgba(255,255,255,0.7) !important; font-weight: 500; transition: 0.3s; }
-        .nav-link:hover, .nav-link.active { color: var(--bs-info) !important; }
+/* =========================================
+   MIND-BLOWING SPLASH SCREEN - PORTAL OPENING
+   ========================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at 30% 50%, #1a2f4a 0%, #03050a 100%);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: clip-path 1.8s cubic-bezier(0.77, 0, 0.18, 1), 
+                opacity 1.2s ease;
+    clip-path: circle(150% at 50% 50%);
+}
 
-       /* =========================================
-           FANTASTIC UNIQUE SPLASH SCREEN
-           ========================================= */
-        #preloader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background-color: var(--bs-primary); /* Deep Navy Blue */
-            display: flex; justify-content: center; align-items: center;
-            z-index: 9999; transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
+/* =========================================
+   COSMIC HOLOGRAM NAVBAR
+   ========================================= */
+.cosmic-hologram {
+    background: rgba(10, 20, 30, 0.1) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: top;
+}
 
-        .loader-wrapper {
-            display: flex; flex-direction: column; align-items: center;
-        }
+/* Levitating effect on scroll */
+.cosmic-hologram.scrolled {
+    background: rgba(13, 27, 42, 0.85) !important;
+    backdrop-filter: blur(30px) saturate(200%);
+    border-bottom-color: rgba(0, 180, 216, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.2);
+}
 
-        /* The Multi-Layered Orbits */
-        .loader-core {
-            position: relative; width: 100px; height: 100px; margin-bottom: 25px;
-        }
-        .orbit {
-            position: absolute; border-radius: 50%;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-        }
-        
-        /* Outer Teal Ring */
-        .orbit-1 {
-            width: 100px; height: 100px;
-            border: 2px solid rgba(0, 180, 216, 0.1);
-            border-top: 2px solid var(--bs-info);
-            border-bottom: 2px solid var(--bs-info);
-            animation: spin 2s linear infinite;
-        }
-        
-        /* Middle Maroon Dashed Ring */
-        .orbit-2 {
-            width: 75px; height: 75px;
-            border: 2px dashed var(--bs-secondary);
-            animation: spin-reverse 4s linear infinite;
-        }
-        
-        /* Inner White Ring */
-        .orbit-3 {
-            width: 50px; height: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-left: 2px solid #ffffff;
-            animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-        }
+/* Brand Container */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
 
-        /* Center Glowing Camera Icon */
-        .center-icon {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 22px; color: var(--bs-info);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
+.brand-icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary));
+    border-radius: 12px;
+    transform: rotate(45deg);
+    transition: all 0.4s;
+}
 
-        /* Cinematic Text Reveal */
-        .loader-text {
-            color: #ffffff; font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem; font-weight: 600; letter-spacing: 8px;
-            text-transform: uppercase; margin-left: 8px; /* Offset for letter-spacing */
-            animation: text-glow 2s ease-in-out infinite;
-        }
+.brand-icon i {
+    transform: rotate(-45deg);
+    font-size: 24px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
 
-        /* Sleek Scanning Loading Line */
-        .loader-bar {
-            width: 140px; height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            margin-top: 15px; position: relative; overflow: hidden;
-            border-radius: 2px;
-        }
-        .loader-bar::after {
-            content: ''; position: absolute; left: -50%; top: 0;
-            height: 100%; width: 50%;
-            background: var(--bs-info);
-            box-shadow: 0 0 10px var(--bs-info);
-            animation: slide-bar 1.5s ease-in-out infinite;
-        }
+.icon-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s;
+    border-radius: 50%;
+}
 
-        /* Keyframes */
-        @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spin-reverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
-        @keyframes pulse-glow { 
-            0%, 100% { text-shadow: 0 0 5px rgba(0,180,216,0.5); transform: translate(-50%, -50%) scale(1); } 
-            50% { text-shadow: 0 0 20px rgba(0,180,216,1); transform: translate(-50%, -50%) scale(1.1); } 
-        }
-        @keyframes text-glow { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; text-shadow: 0 0 10px rgba(0,180,216,0.8); } }
-        @keyframes slide-bar { 0% { left: -50%; } 100% { left: 100%; } }
+.brand-container:hover .icon-aura {
+    width: 100px;
+    height: 100px;
+}
 
-          .navbar.fixed-top { 
-            background-color: var(--nav-bg); 
-        }
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
 
-        /* 1. Hide the Navbar completely while Preloader is playing */
-        body:not(.loaded) .navbar.fixed-top {
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: none !important; /* Forces it to stay hidden without glitching */
-        }
+.text-line {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
 
-        /* 2. The Fantastic Entrance Animation (Slow, luxurious drop) */
-        body.loaded .navbar.fixed-top {
-            transform: translateY(0);
-            opacity: 1;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, background-color 0.4s;
-        }
+.text-line:first-child {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    animation: textFlicker 3s infinite;
+}
 
-        /* 3. The Smart Scroll Hide (Faster slide up when scrolling down) */
-        body.loaded .navbar.fixed-top.navbar-hidden {
-            transform: translateY(-100%);
-            /* Switches to a faster animation when you are scrolling */
-            transition: transform 0.4s ease-in-out, background-color 0.4s; 
-        }
+.text-line.small {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    opacity: 0.7;
+}
 
-          /* 1. Navbar Smooth Drop */
-        body:not(.loaded) #mainNav {
-            transform: translateY(-120%);
-            opacity: 0;
-        }
-        body.loaded #mainNav {
-            /* Drops down with a beautiful sleek deceleration */
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, background-color 0.4s;
-        }
+/* Quantum levitate animation */
+.quantum-levitate {
+    animation: levitate 3s infinite ease-in-out;
+}
 
-        /* 2. Initial Hidden States for Header */
-        body:not(.loaded) .hero-title-anim { opacity: 0; transform: scale(1.1); filter: blur(15px); letter-spacing: 25px; }
-        body:not(.loaded) .hero-sub-anim { opacity: 0; transform: translateY(40px); }
-        body:not(.loaded) .hero-btn-anim { opacity: 0; transform: scale(0.5); }
+@keyframes levitate {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
 
-        /* 3. The Sequential Triggers */
-        body.loaded .hero-title-anim {
-            animation: cinematicTitle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
-        }
-        body.loaded .hero-sub-anim {
-            animation: fadeUpSub 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
-        }
-        body.loaded .hero-btn-anim {
-            /* Spring physics pop-in */
-            animation: popInBtn 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s forwards; 
-        }
+/* Navbar Cosmic Wrapper */
+.nav-cosmic-wrapper {
+    position: relative;
+    border-radius: 50px;
+    padding: 5px 15px;
+    overflow: hidden;
+}
 
-        /* 4. The Keyframes */
-        @keyframes cinematicTitle {
-            0% { opacity: 0; transform: scale(1.1); filter: blur(15px); letter-spacing: 25px; }
-            100% { opacity: 1; transform: scale(1); filter: blur(0); letter-spacing: normal; }
-        }
-        @keyframes fadeUpSub {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes popInBtn {
-            0% { opacity: 0; transform: scale(0.5); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+/* Floating orbs */
+.nav-orb {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(30px);
+    animation: orbFloat 8s infinite;
+    pointer-events: none;
+}
 
-        /* --- HEADER CAROUSEL --- */
-        .carousel-header { height: 100vh; }
-        .carousel-item img {
-            height: 100vh; object-fit: cover; filter: brightness(0.4); 
-        }
-        .carousel-caption { bottom: 30%; text-align: center; }
+.nav-orb:nth-child(1) { top: -50px; left: -50px; }
+.nav-orb:nth-child(2) { bottom: -50px; right: -50px; background: rgba(128,0,0,0.2); }
+.nav-orb:nth-child(3) { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; }
 
-        /* --- CARDS & TYPOGRAPHY --- */
-        .card { 
-            background-color: var(--card-bg); border: none; border-radius: 12px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, background-color 0.4s; 
-        }
-        .card:hover { transform: translateY(-5px); }
-        .section-title { color: var(--bs-secondary); font-weight: 700; margin-bottom: 1rem; transition: color 0.4s; }
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(20px, -20px) scale(1.2); opacity: 0.5; }
+}
 
-        /* --- GALLERY --- */
-        .gallery-item {
-            position: relative; overflow: hidden; border-radius: 10px;
-            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .gallery-item img {
-            width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s ease;
-        }
-        .gallery-item:hover img { transform: scale(1.1); }
-        /* --- TABS (Fixed Visibility & Border) --- */
-        .nav-tabs .nav-link { 
-            color: var(--bs-secondary) !important; /* Forces Maroon color */
-            font-weight: 600; 
-            border: none !important; /* Fixed border syntax so it shows */
-            margin: 0 5px; /* Adds a little spacing between tabs */
-        }
-        
-        .nav-tabs .nav-link.active { 
-            background-color: var(--bs-info) !important; 
-            color: #ffffff !important; 
-            border-radius: 5px; 
-            border-color: var(--bs-info) !important; /* Matches border to active background */
-        }
+/* Cosmic Navigation Links */
+.cosmic-nav-links {
+    position: relative;
+    z-index: 2;
+    gap: 5px;
+}
 
-        /* --- TABS DARK MODE FIX (So text doesn't disappear) --- */
-        .dark-mode .nav-tabs .nav-link {
-            color: #e0e0e0 !important; /* Changes text to Light Gray in dark mode */
-            border-color: #555 !important; /* Changes border to gray so it's not aggressively red */
-        }
-        .dark-mode .nav-tabs .nav-link.active {
-            color: #ffffff !important;
-            background-color: var(--bs-info) !important;
-            border-color: var(--bs-info) !important;
-        }
+.quantum-hover {
+    position: relative;
+    padding: 10px 18px !important;
+    margin: 0 2px;
+    transition: all 0.4s;
+}
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--bs-primary); color: rgba(255,255,255,0.7); }
-        footer a { color: var(--bs-info); transition: 0.3s; }
-        footer a:hover { color: #fff; }
+.nav-text {
+    position: relative;
+    z-index: 2;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    transition: all 0.3s;
+}
 
-        /* =========================================
-           DARK MODE STYLES (Comprehensive Fix)
-           ========================================= */
-        .dark-mode {
-            --bs-body-bg: #121212;
-            --bs-body-color: #e0e0e0;
-            --card-bg: #1e1e1e;
-        }
-        
-        .dark-mode body {
-            background-color: var(--bs-body-bg);
-            color: var(--bs-body-color);
-        }
+.nav-indicator {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cosmic-accent), transparent);
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-        /* Background & Text Overrides */
-        .dark-mode .bg-light { background-color: #1a1a1a !important; }
-        .dark-mode .text-muted { color: #aaaaaa !important; }
-        .dark-mode .section-title { color: #ff6666 !important; } /* Lighter maroon for dark bg */
-        .dark-mode .text-primary { color: #66b2ff !important; } /* Lighter blue */
-        .dark-mode .text-dark { color: #e0e0e0 !important; }
+.quantum-hover:hover .nav-indicator {
+    width: 70%;
+}
 
-          .tooltip-inner {
-            background-color: var(--bs-info) !important; /* Changes background to Teal */
-            color: #ffffff !important; /* Pure white text */
-            font-weight: 600 !important; /* Slightly bolder so it's easy to read */
-            padding: 8px 12px !important;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow */
-        }
+.quantum-hover:hover .nav-text {
+    transform: translateY(-2px);
+    text-shadow: 0 0 15px var(--cosmic-accent);
+}
 
-        /* Fix the little pointing arrow to match the Teal background */
-        .bs-tooltip-top .tooltip-arrow::before, 
-        .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
-            border-top-color: var(--bs-info) !important;
-        }
-        .bs-tooltip-bottom .tooltip-arrow::before, 
-        .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
-            border-bottom-color: var(--bs-info) !important;
-        }
+/* Active state */
+.quantum-hover.active .nav-indicator {
+    width: 70%;
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-secondary));
+}
 
-        /* Card Overrides */
-        .dark-mode .card { background-color: var(--card-bg) !important; border: 1px solid #333; }
-        .dark-mode .card * { color: #e0e0e0; }
-        .dark-mode .card .text-info { color: var(--bs-info) !important; } /* Retain teal icons */
-        
-        /* Accordion Overrides */
-        .dark-mode .accordion-item { background-color: #1e1e1e; border: 1px solid #333; }
-        .dark-mode .accordion-button { background-color: #2a2a2a; color: #fff; }
-        .dark-mode .accordion-button:not(.collapsed) { background-color: #0d1b2a; color: #00b4d8; }
-        .dark-mode .accordion-body { color: #e0e0e0; background-color: #1e1e1e; }
+/* Cosmic Dropdown */
+.cosmic-dropdown-container {
+    perspective: 1000px;
+}
 
-        /* Form Inputs Overrides */
-        .dark-mode input, .dark-mode textarea {
-            background-color: #2a2a2a !important; color: #fff !important; border: 1px solid #444 !important;
-        }
-        .dark-mode input::placeholder, .dark-mode textarea::placeholder { color: #888 !important; }
+.cosmic-dropdown-menu {
+    background: rgba(13, 27, 42, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 15px;
+    padding: 8px;
+    animation: dropdownAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: top;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
 
-        /* Offcanvas & Dropdowns */
-        .dark-mode .offcanvas { background-color: #1e1e1e; color: #e0e0e0; }
-        .dark-mode .offcanvas-header { border-bottom: 1px solid #333 !important; }
-        .dark-mode .dropdown-menu { background-color: #2a2a2a; }
-        .dark-mode .dropdown-item { color: #e0e0e0; }
-        .dark-mode .dropdown-item:hover { background-color: #3a3a3a; color: #fff; }
+.cosmic-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s;
+    overflow: hidden;
+}
 
-         .dark-mode .alert-info {
-            background-color: #0c2b36 !important; /* Deep dark teal background */
-            color: #e0e0e0 !important; /* Light gray text */
-        }
-        
-        /* Override the hardcoded 'text-dark' class */
-        .dark-mode .alert-info.text-dark {
-            color: #e0e0e0 !important; 
-        }
+.cosmic-item i {
+    font-size: 1rem;
+    color: var(--cosmic-accent);
+    transition: all 0.3s;
+}
 
-        /* Make the bold text pop with your accent color */
-        .dark-mode .alert-info strong {
-            color: var(--bs-info) !important; 
-        }
+.item-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0,180,216,0.2), transparent);
+    transition: left 0.5s;
+}
 
-        /* Make the 'X' close button white so it's visible */
-        .dark-mode .alert-info .btn-close {
-            filter: invert(1) grayscale(100%) brightness(200%);
-        }
+.cosmic-item:hover {
+    background: rgba(0, 180, 216, 0.1);
+    transform: translateX(5px);
+}
 
-        /* Tabs */
-        .dark-mode .nav-tabs .nav-link { color: #e0e0e0; }
-        .dark-mode .nav-tabs .nav-link.active { color: #fff !important; }
-          .btn-theme-toggle {
-            width: 42px;
-            height: 42px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
+.cosmic-item:hover i {
+    transform: scale(1.2) rotate(360deg);
+}
 
-        /* =========================================
-           BACK TO TOP BUTTON
-           ========================================= */
-        #backToTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            z-index: 1040; /* High enough to be over content, but below Modals */
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px) scale(0.8);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-        }
+.cosmic-item:hover .item-glow {
+    left: 100%;
+}
 
-        /* Class added by JS when scrolled down */
-        #backToTopBtn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
+/* Quantum Sphere Toggle */
+.quantum-sphere-container {
+    margin-left: 15px;
+}
 
-        /* Hover effect */
-        #backToTopBtn:hover {
-            background-color: var(--bs-primary);
-            color: var(--bs-info) !important;
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
-        }
+.quantum-sphere-btn {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            @media (max-width: 768px) {
-            .carousel-caption h1.display-3 {
-                font-size: 2.2rem !important; /* Shrinks BOOTSTRAP MASTERY */
-                word-wrap: break-word;
-            }
-            .carousel-caption p.lead {
-                font-size: 1rem !important; /* Shrinks the paragraph */
-                padding: 0 10px; /* Adds breathing room on the sides */
-            }
-            .carousel-caption {
-                bottom: 15%; /* Lowers the text so it isn't blocking the image center */
-            }
-            .btn-lg {
-                padding: 10px 30px !important;
-                font-size: 1rem !important;
-            }
-        }
+.sphere-core {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary));
+    border-radius: 50%;
+    transition: all 0.4s;
+    animation: corePulse 2s infinite;
+}
+
+.sphere-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--cosmic-accent);
+    border-radius: 50%;
+    animation: ringSpin 3s linear infinite;
+    opacity: 0.5;
+}
+
+.sphere-ring.delay-1 {
+    width: 50px;
+    height: 50px;
+    border-color: var(--cosmic-secondary);
+    animation-duration: 4s;
+    animation-direction: reverse;
+}
+
+.sphere-ring.delay-2 {
+    width: 60px;
+    height: 60px;
+    border-color: white;
+    animation-duration: 5s;
+}
+
+.sphere-icon {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.4s;
+}
+
+.quantum-sphere-btn:hover .sphere-core {
+    transform: scale(1.2);
+}
+
+.quantum-sphere-btn:hover .sphere-icon {
+    transform: rotate(180deg);
+}
+
+@keyframes corePulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+}
+
+@keyframes ringSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Cosmic Burger Menu */
+.cosmic-burger {
+    border: none !important;
+    padding: 10px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.burger-line {
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-secondary));
+    transition: all 0.4s;
+    border-radius: 2px;
+}
+
+.cosmic-burger[aria-expanded="true"] .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.cosmic-burger[aria-expanded="true"] .burger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.cosmic-burger[aria-expanded="true"] .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.portal-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: portalBreath 3s infinite alternate;
+}
+
+/* =========================================
+   COSMIC PORTAL HEADER
+   ========================================= */
+.cosmic-portal-header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #1a2f4a 0%, #03050a 100%);
+}
+
+/* WebGL Canvas */
+#portalCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Nebula Layers */
+.nebula-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 30%) var(--y, 50%), 
+        rgba(0, 180, 216, 0.2) 0%, 
+        transparent 50%);
+    filter: blur(40px);
+    mix-blend-mode: screen;
+    animation: nebulaDrift 20s infinite alternate;
+    z-index: 2;
+}
+
+.nebula-layer.layer-1 {
+    --x: 20%;
+    --y: 30%;
+    background: radial-gradient(circle at 20% 30%, rgba(0,180,216,0.3) 0%, transparent 60%);
+    animation-duration: 15s;
+}
+
+.nebula-layer.layer-2 {
+    --x: 80%;
+    --y: 70%;
+    background: radial-gradient(circle at 80% 70%, rgba(128,0,0,0.2) 0%, transparent 60%);
+    animation-duration: 20s;
+    animation-direction: reverse;
+}
+
+.nebula-layer.layer-3 {
+    --x: 50%;
+    --y: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation-duration: 25s;
+    mix-blend-mode: overlay;
+}
+
+@keyframes nebulaDrift {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+    100% { transform: scale(1.5) translate(10%, 10%); opacity: 0.8; }
+}
+
+/* Particle Field */
+.particle-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Portal Content */
+.portal-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 3D Rotating Headline */
+.cosmic-headline {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.headline-3d-container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.headline-3d {
+    transform-style: preserve-3d;
+    animation: rotate3D 10s infinite cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.headline-3d .word {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 
+        0 0 30px var(--cosmic-accent),
+        5px 5px 0 var(--cosmic-secondary),
+        -5px -5px 0 rgba(0,180,216,0.5);
+    position: relative;
+    animation: wordGlitch 4s infinite;
+}
+
+.headline-3d .word:first-child {
+    margin-bottom: 10px;
+}
+
+.headline-3d .word::before {
+    content: attr(data-word);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--cosmic-accent);
+    transform: translateZ(-10px) scale(1.1);
+    opacity: 0.3;
+    filter: blur(5px);
+}
+
+@keyframes rotate3D {
+    0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
+    25% { transform: rotateX(5deg) rotateY(10deg); }
+    75% { transform: rotateX(-5deg) rotateY(-10deg); }
+}
+
+@keyframes wordGlitch {
+    0%, 100% { transform: skew(0deg); }
+    92% { transform: skew(2deg); text-shadow: 10px 10px 0 var(--cosmic-secondary); }
+    94% { transform: skew(-2deg); text-shadow: -10px -10px 0 var(--cosmic-accent); }
+    96% { transform: skew(1deg); }
+}
+
+/* Typewriter Subtitle */
+.cosmic-subtitle-wrapper {
+    height: 60px;
+    margin-bottom: 40px;
+}
+
+.cosmic-subtitle {
+    font-size: 1.8rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
+}
+
+.typewriter-text {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    color: var(--cosmic-accent);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Quantum CTA Buttons */
+.portal-actions {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.quantum-cta {
+    position: relative;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: all 0.4s;
+    border: none;
+    cursor: pointer;
+}
+
+.quantum-cta.primary {
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary));
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,180,216,0.3);
+}
+
+.quantum-cta.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--cosmic-accent);
+    backdrop-filter: blur(5px);
+}
+
+.cta-text {
+    position: relative;
+    z-index: 3;
+}
+
+/* Particle effects on primary button */
+.cta-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+    animation: particleFly 2s infinite;
+}
+
+.cta-particle:nth-child(2) { top: 20%; left: 10%; }
+.cta-particle.delay-1 { top: 60%; left: 20%; animation-delay: 0.5s; }
+.cta-particle.delay-2 { top: 30%; left: 80%; animation-delay: 1s; }
+
+@keyframes particleFly {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    50% { transform: translate(100px, -50px) scale(0); opacity: 1; }
+    100% { transform: translate(200px, -100px) scale(0); opacity: 0; }
+}
+
+/* Ring effect on secondary button */
+.cta-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid var(--cosmic-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s;
+}
+
+.quantum-cta.secondary:hover .cta-ring {
+    width: 150%;
+    height: 150%;
+    opacity: 0;
+}
+
+/* Button hover effects */
+.quantum-cta.primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,180,216,0.5);
+}
+
+.quantum-cta.secondary:hover {
+    background: var(--cosmic-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,180,216,0.3);
+}
+
+/* Scroll Indicator */
+.cosmic-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+.indicator-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.indicator-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--cosmic-accent), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+.indicator-arrow {
+    animation: bounceArrow 2s infinite;
+    color: var(--cosmic-accent);
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* Orbiting Elements */
+.orbiting-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.orbit-element {
+    position: absolute;
+    border-radius: 50%;
+    animation: orbit 20s linear infinite;
+}
+
+.orbit-element.element-1 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(0,180,216,0.3) 0%, transparent 70%);
+    animation: orbit1 15s infinite;
+}
+
+.orbit-element.element-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    right: 10%;
+    background: radial-gradient(circle, rgba(128,0,0,0.2) 0%, transparent 70%);
+    animation: orbit2 20s infinite reverse;
+}
+
+.orbit-element.element-3 {
+    width: 70px;
+    height: 70px;
+    top: 40%;
+    right: 30%;
+    background: radial-gradient(circle, white 0%, transparent 70%);
+    animation: orbit3 12s infinite;
+}
+
+@keyframes orbit1 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(100px, 100px) rotate(120deg); }
+    66% { transform: translate(200px, -50px) rotate(240deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes orbit2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-150px, -150px) scale(1.5); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Grid lines converging */
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(90deg, 
+            transparent 0%, 
+            transparent 48px, 
+            rgba(0, 180, 216, 0.15) 48px, 
+            rgba(0, 180, 216, 0.15) 50px),
+        repeating-linear-gradient(0deg, 
+            transparent 0%, 
+            transparent 48px, 
+            rgba(128, 0, 0, 0.15) 48px, 
+            rgba(128, 0, 0, 0.15) 50px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg) scale(1.5);
+    animation: gridWarp 4s infinite linear;
+    opacity: 0.7;
+}
+
+/* Glowing Portal Core */
+.portal-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0px;
+    height: 0px;
+    background: radial-gradient(circle, 
+        rgba(0, 180, 216, 0.9) 0%, 
+        rgba(128, 0, 0, 0.4) 40%, 
+        transparent 70%);
+    border-radius: 50%;
+    animation: portalExpand 3s infinite alternate;
+    filter: blur(5px);
+    box-shadow: 0 0 100px rgba(0, 180, 216, 0.8);
+}
+
+/* Expanding Rings */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    opacity: 0;
+}
+
+.ring-1 {
+    width: 200px;
+    height: 200px;
+    border-color: var(--cosmic-accent);
+    animation: ringExpand 3s infinite ease-out;
+}
+
+.ring-2 {
+    width: 300px;
+    height: 300px;
+    border-color: var(--cosmic-secondary);
+    animation: ringExpand 3s 0.5s infinite ease-out;
+}
+
+.ring-3 {
+    width: 400px;
+    height: 400px;
+    border-color: #ffffff;
+    animation: ringExpand 3s 1s infinite ease-out;
+}
+
+/* Floating Particles - Generated by JS */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--cosmic-accent);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: floatParticle 4s infinite;
+    pointer-events: none;
+}
+
+/* Quantum Brand Text with Glitch */
+.quantum-text {
+    position: relative;
+    text-align: center;
+    z-index: 100;
+    animation: textReveal 2s infinite;
+}
+
+.glitch-layer {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 
+        4px 4px 0 var(--cosmic-accent),
+        -4px -4px 0 var(--cosmic-secondary);
+    animation: glitchText 3s infinite;
+    margin-bottom: 10px;
+}
+
+.glitch-layer-2 {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    animation: glitchText2 3s infinite reverse;
+    text-shadow: 
+        3px 3px 0 var(--cosmic-secondary),
+        -3px -3px 0 var(--cosmic-accent);
+}
+
+/* Energy Bar */
+.energy-bar {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.energy-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, 
+        var(--cosmic-secondary), 
+        var(--cosmic-accent), 
+        var(--cosmic-secondary));
+    animation: energyFill 2.5s infinite;
+    box-shadow: 0 0 20px var(--cosmic-accent);
+}
+
+/* Portal Keyframes */
+@keyframes portalBreath {
+    0% { transform: scale(1); filter: brightness(1); }
+    100% { transform: scale(1.05); filter: brightness(1.2); }
+}
+
+@keyframes gridWarp {
+    0% { transform: perspective(500px) rotateX(60deg) scale(1.5) translateZ(0); }
+    100% { transform: perspective(500px) rotateX(60deg) scale(1.5) translateZ(100px); }
+}
+
+@keyframes portalExpand {
+    0% { width: 0px; height: 0px; opacity: 1; filter: blur(5px); }
+    100% { width: 500px; height: 500px; opacity: 0.2; filter: blur(20px); }
+}
+
+@keyframes ringExpand {
+    0% { width: 100px; height: 100px; opacity: 1; border-width: 4px; }
+    100% { width: 600px; height: 600px; opacity: 0; border-width: 1px; }
+}
+
+@keyframes floatParticle {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translate(calc(cos(var(--angle)) * 200px), calc(sin(var(--angle)) * 200px)) rotate(360deg); opacity: 0; }
+}
+
+@keyframes glitchText {
+    0%, 100% { transform: skew(0deg, 0deg); opacity: 1; text-shadow: 4px 4px 0 var(--cosmic-accent), -4px -4px 0 var(--cosmic-secondary); }
+    95% { transform: skew(5deg, 2deg); opacity: 0.9; text-shadow: 6px 6px 0 var(--cosmic-secondary), -6px -6px 0 var(--cosmic-accent); }
+    96% { transform: skew(-5deg, -2deg); opacity: 0.95; }
+    97% { transform: skew(3deg, 1deg); }
+}
+
+@keyframes glitchText2 {
+    0%, 100% { transform: skew(0deg, 0deg); opacity: 0.9; letter-spacing: 20px; }
+    95% { transform: skew(-3deg, -1deg); opacity: 1; letter-spacing: 25px; }
+    96% { transform: skew(3deg, 1deg); letter-spacing: 15px; }
+}
+
+@keyframes energyFill {
+    0% { width: 0%; margin-left: -100%; }
+    50% { width: 100%; margin-left: 0%; }
+    100% { width: 0%; margin-left: 100%; }
+}
+
+@keyframes textReveal {
+    0%, 100% { filter: blur(0); }
+    50% { filter: blur(2px); }
+}
+
+/* =========================================
+   COSMIC NAVIGATION - BLACK HOLE EFFECT
+   ========================================= */
+.cosmic-nav {
+    background: rgba(13, 27, 42, 0.85) !important;
+    backdrop-filter: blur(15px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 180, 216, 0.3);
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                background 0.4s,
+                backdrop-filter 0.4s;
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #fff !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+    animation: brandPulse 3s infinite;
+}
+
+.quantum-link {
+    color: rgba(255,255,255,0.8) !important;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 15px;
+    margin: 0 5px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.quantum-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cosmic-accent), transparent);
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.quantum-link:hover::before {
+    width: 80%;
+}
+
+.quantum-link:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--cosmic-accent);
+}
+
+.cosmic-dropdown {
+    background: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: dropdownAppear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cosmic-dropdown .dropdown-item {
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-dropdown .dropdown-item:hover {
+    background: rgba(0, 180, 216, 0.2);
+    transform: translateX(5px);
+}
+
+.cosmic-dropdown .dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0,180,216,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.cosmic-dropdown .dropdown-item:hover::before {
+    left: 100%;
+}
+
+@keyframes dropdownAppear {
+    0% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes brandPulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 0.1; }
+}
+
+/* =========================================
+   QUANTUM TOGGLE BUTTON
+   ========================================= */
+.quantum-toggle {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--cosmic-accent);
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.quantum-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--cosmic-accent) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: 0;
+}
+
+.quantum-toggle:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.quantum-toggle i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s;
+}
+
+.quantum-toggle:hover i {
+    transform: rotate(180deg);
+    color: #fff !important;
+}
+
+/* =========================================
+   CINEMATIC CAROUSEL
+   ========================================= */
+.cosmic-carousel {
+    height: 100vh;
+    position: relative;
+}
+
+.carousel-item img {
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.3) saturate(1.2);
+    transform: scale(1);
+    transition: transform 8s ease;
+}
+
+.carousel-item.active img {
+    transform: scale(1.1);
+}
+
+.cosmic-caption {
+    bottom: 30%;
+    text-align: center;
+}
+
+.cosmic-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 
+        0 0 20px var(--cosmic-accent),
+        0 0 40px rgba(0,180,216,0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.cosmic-title::before {
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--cosmic-secondary);
+    animation: glitchTitle 3s infinite;
+    opacity: 0.3;
+}
+
+.cosmic-subtitle {
+    animation: subtitleFloat 2s infinite alternate;
+}
+
+.cosmic-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+    border: none;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-secondary));
+    background-size: 200% 200%;
+}
+
+.cosmic-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+    animation: gradientShift 1s infinite;
+}
+
+.cosmic-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    animation: btnPulse 2s infinite;
+}
+
+.cosmic-indicators button {
+    width: 30px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-secondary)) !important;
+    border-radius: 0 !important;
+    transition: all 0.4s;
+}
+
+.cosmic-indicators button.active {
+    width: 60px !important;
+}
+
+@keyframes glitchTitle {
+    0%, 100% { transform: translate(0); opacity: 0.3; }
+    20% { transform: translate(-2px, 2px); opacity: 0.5; }
+    40% { transform: translate(2px, -2px); opacity: 0.5; }
+}
+
+@keyframes subtitleFloat {
+    0% { transform: translateY(0); opacity: 0.8; }
+    100% { transform: translateY(-10px); opacity: 1; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes btnPulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.1; }
+}
+
+/* =========================================
+   QUANTUM ALERT
+   ========================================= */
+.quantum-alert {
+    background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(128,0,0,0.1));
+    backdrop-filter: blur(10px);
+    border-left: 5px solid var(--cosmic-accent) !important;
+    animation: alertPulse 2s infinite;
+    color: var(--cosmic-dark);
+}
+
+@keyframes alertPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,180,216,0.2); }
+    50% { box-shadow: 0 0 40px rgba(0,180,216,0.4); }
+}
+
+/* =========================================
+   3D SECTIONS & CARDS
+   ========================================= */
+.cosmic-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,180,216,0.03) 0%, transparent 70%);
+    animation: sectionWarp 20s infinite linear;
+    pointer-events: none;
+}
+
+.quantum-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    color: var(--cosmic-secondary);
+    position: relative;
+    display: inline-block;
+}
+
+.quantum-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cosmic-accent), transparent);
+    animation: titleLine 3s infinite;
+}
+
+/* 3D Cards */
+.quantum-3d-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,180,216,0.2);
+    border-radius: 15px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+.quantum-3d-card:hover {
+    transform: rotateX(5deg) rotateY(5deg) translateZ(30px);
+    box-shadow: 
+        -20px 20px 30px rgba(0,0,0,0.2),
+        0 0 30px var(--cosmic-accent);
+}
+
+.card-inner {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s;
+}
+
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255,255,255,0.3) 0%, 
+        transparent 50%,
+        rgba(0,180,216,0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+
+.quantum-3d-card:hover .card-shine {
+    opacity: 1;
+}
+
+/* Cosmic Image Wrapper */
+.cosmic-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.cosmic-img {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cosmic-image-wrapper:hover .cosmic-img {
+    transform: scale(1.1);
+}
+
+.image-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+
+.cosmic-image-wrapper:hover .image-aura {
+    opacity: 1;
+}
+
+/* Quantum Accordion */
+.quantum-accordion {
+    background: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.cosmic-accordion-item {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,180,216,0.2) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.cosmic-accordion-btn {
+    background: linear-gradient(135deg, rgba(0,180,216,0.1), transparent) !important;
+    color: var(--cosmic-primary) !important;
+    font-weight: 600;
+    transition: all 0.4s;
+}
+
+.cosmic-accordion-btn:not(.collapsed) {
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary)) !important;
+    color: #fff !important;
+}
+
+.cosmic-accordion-body {
+    background: rgba(255,255,255,0.02);
+    color: inherit;
+}
+
+/* =========================================
+   QUANTUM GALLERY - SCAN EFFECT
+   ========================================= */
+.quantum-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.quantum-gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.quantum-gallery-item:hover img {
+    transform: scale(1.2);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0,180,216,0.3), 
+        rgba(128,0,0,0.3));
+    opacity: 0;
+    transition: opacity 0.4s;
+    mix-blend-mode: overlay;
+}
+
+.quantum-gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-scan {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255,255,255,0.2) 50%, 
+        transparent 70%);
+    transform: rotate(45deg);
+    animation: quantumScan 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes quantumScan {
+    0% { top: -100%; left: -100%; }
+    100% { top: 100%; left: 100%; }
+}
+
+/* =========================================
+   MAGNETIC FORM ELEMENTS
+   ========================================= */
+.magnetic-field {
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.cosmic-input {
+    background: rgba(255,255,255,0.05) !important;
+    border: 2px solid rgba(0,180,216,0.2) !important;
+    color: inherit !important;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 2;
+}
+
+.cosmic-input:focus {
+    border-color: var(--cosmic-accent) !important;
+    box-shadow: 0 0 30px rgba(0,180,216,0.3) !important;
+    transform: translateY(-2px);
+}
+
+.input-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        rgba(0,180,216,0.2) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.magnetic-field:hover .input-aura {
+    opacity: 1;
+}
+
+.cosmic-submit-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary)) !important;
+    border: none !important;
+    transition: all 0.4s;
+}
+
+.cosmic-submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--cosmic-accent);
+}
+
+.cosmic-submit-btn .btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-magnetic-field {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cosmic-submit-btn:hover .btn-magnetic-field {
+    width: 200px;
+    height: 200px;
+}
+
+/* =========================================
+   QUANTUM INFO CARD
+   ========================================= */
+.quantum-info-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2f4a 100%) !important;
+    border: 1px solid rgba(0,180,216,0.3) !important;
+}
+
+.quantum-glow-text {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 20px var(--cosmic-accent);
+    animation: textGlow 2s infinite;
+}
+
+.quantum-newsletter-group {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.cosmic-newsletter-input {
+    background: rgba(255,255,255,0.1) !important;
+    border: none !important;
+    color: #fff !important;
+    padding-left: 20px !important;
+}
+
+.cosmic-newsletter-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.quantum-newsletter-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary)) !important;
+    border: none !important;
+    transition: all 0.4s;
+}
+
+.quantum-newsletter-btn:hover {
+    transform: scale(1.1);
+}
+
+.quantum-newsletter-btn i {
+    animation: iconSpin 2s infinite;
+}
+
+.quantum-icon-pulse {
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconSpin {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.2); filter: brightness(1.5); }
+}
+
+/* =========================================
+   COSMIC FOOTER
+   ========================================= */
+.cosmic-footer {
+    background: linear-gradient(135deg, #0a0f1e 0%, #1a1f2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,180,216,0.05) 0%, transparent 70%);
+    animation: footerWarp 20s infinite linear;
+}
+
+.cosmic-footer-brand {
+    position: relative;
+    display: inline-block;
+}
+
+.quantum-icon-rotate {
+    animation: iconRotate 4s infinite;
+}
+
+.quantum-social-link {
+    position: relative;
+    display: inline-block;
+    transition: all 0.4s;
+}
+
+.quantum-social-link:hover {
+    transform: translateY(-5px);
+    color: var(--cosmic-accent) !important;
+}
+
+.social-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--cosmic-accent) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.quantum-social-link:hover .social-aura {
+    width: 50px;
+    height: 50px;
+}
+
+@keyframes iconRotate {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+@keyframes footerWarp {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.5); }
+}
+
+/* =========================================
+   BACK TO TOP - QUANTUM BUTTON
+   ========================================= */
+.quantum-back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--cosmic-secondary)) !important;
+    overflow: hidden;
+}
+
+.quantum-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.quantum-back-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 50px var(--cosmic-accent);
+}
+
+.quantum-back-to-top .btn-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    border-radius: 50%;
+}
+
+.quantum-back-to-top:hover .btn-aura {
+    width: 200px;
+    height: 200px;
+}
+
+.quantum-up-arrow {
+    position: relative;
+    z-index: 2;
+    animation: arrowFloat 1s infinite alternate;
+}
+
+@keyframes arrowFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+/* =========================================
+   OFF CANVAS, MODAL, TOAST
+   ========================================= */
+.cosmic-offcanvas {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2f4a 100%);
+    color: #fff;
+    border-left: 1px solid rgba(0,180,216,0.3);
+}
+
+.cosmic-timeline {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cosmic-accent) !important;
+}
+
+.cosmic-history-text {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+}
+
+.cosmic-modal .modal-content {
+    background: transparent;
+}
+
+.cosmic-modal-img {
+    animation: modalZoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 3px solid rgba(0,180,216,0.3);
+}
+
+.modal-zoom-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.quantum-toast {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2f4a 100%) !important;
+    border-left: 5px solid var(--cosmic-accent) !important;
+}
+
+.quantum-check {
+    animation: checkPulse 1s infinite;
+}
+
+@keyframes checkPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); color: var(--cosmic-accent); }
+}
+
+@keyframes modalZoom {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   DARK MODE ENHANCEMENTS
+   ========================================= */
+.dark-mode {
+    --cosmic-light: #0a0f1e;
+    background: var(--cosmic-light);
+    color: #e0e0e0;
+}
+
+.dark-mode .card {
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(0,180,216,0.1);
+}
+
+.dark-mode .cosmic-text {
+    color: #aaa !important;
+}
+
+.dark-mode .quantum-3d-card {
+    background: rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   AOS CUSTOM ANIMATIONS
+   ========================================= */
+[data-aos="cosmic-right"] {
+    transform: translateX(-100px) rotateY(30deg);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="cosmic-right"].aos-animate {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+}
+
+[data-aos="cosmic-left"] {
+    transform: translateX(100px) rotateY(-30deg);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="cosmic-left"].aos-animate {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+}
+
+[data-aos="cosmic-fade"] {
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+    filter: blur(10px);
+    transition-property: transform, opacity, filter;
+}
+
+[data-aos="cosmic-fade"].aos-animate {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    filter: blur(0);
+}
+
+[data-aos="quantum-rise"] {
+    transform: translateY(100px) scale(0.5) rotate(10deg);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="quantum-rise"].aos-animate {
+    transform: translateY(0) scale(1) rotate(0);
+    opacity: 1;
+}
+
+[data-aos="card-3d"] {
+    transform: perspective(400px) rotateX(90deg) translateZ(-100px);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="card-3d"].aos-animate {
+    transform: perspective(400px) rotateX(0) translateZ(0);
+    opacity: 1;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .glitch-layer {
+        font-size: 2.5rem;
+        letter-spacing: 8px;
+    }
+    
+    .glitch-layer-2 {
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+    }
+    
+    .cosmic-title {
+        font-size: 2.5rem;
+    }
+    
+    .portal-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .ring-1 { width: 150px; height: 150px; }
+    .ring-2 { width: 200px; height: 200px; }
+    .ring-3 { width: 250px; height: 250px; }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cosmic-secondary), var(--cosmic-accent), var(--cosmic-secondary));
+    z-index: 10000;
+    transition: width 0.1s;
+    box-shadow: 0 0 20px var(--cosmic-accent);
+}
