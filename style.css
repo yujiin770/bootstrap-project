@@ -19,19 +19,13 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 76px;
-    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-x: hidden;
-    background: var(--cosmic-light);
-    position: relative;
-    color: var(--text-dark);
-}
 
 /* =========================================
    FIXED NOTIFICATION STYLES
@@ -1813,15 +1807,34 @@ body {
     background: linear-gradient(transparent, rgba(0,180,216,0.1));
     animation: wavePulse 4s infinite;
 }
+.cosmic-footer, footer {
+    overflow: hidden !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 2rem !important; /* Adjust if your footer text looks too close to the bottom */
+}
+.cosmic-footer p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.modal, .offcanvas-backdrop {
+    position: fixed !important;
+    bottom: 0 !important;
+}
+
+.cosmic-offcanvas, .offcanvas {
+    position: fixed !important; 
+    height: 100vh !important;
+    z-index: 99999 !important;
+}
 
 /* =========================================
    SCROLL PROGRESS BAR
    ========================================= */
 .scroll-progress {
     position: fixed;
-    top: 0;
+     bottom: 0;
     left: 0;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, var(--cosmic-secondary), var(--cosmic-accent), var(--cosmic-secondary));
     z-index: 10000;
     transition: width 0.1s;
@@ -6128,4 +6141,94 @@ body {
 @keyframes particleOrbit {
     from { transform: rotate(0deg) translateX(45px); }
     to { transform: rotate(360deg) translateX(45px); }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+    /* Ensure content doesn't overflow */
+    .container, .cosmic-section {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Stack flex/grid items vertically on mobile */
+    .row {
+        flex-direction: column;
+    }
+
+    /* Adjust fonts to prevent horizontal overflow */
+    h1, #headline3D, #typewriter {
+        font-size: 2rem !important; 
+    }
+
+    /* Keep images within bounds */
+    img, .modal-dialog {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* 1. Force the Back to Top button to float over the screen, not stretch the bottom */
+#backToTopBtn {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999 !important;
+    /* If it's visible when it shouldn't be, ensure default is hidden until JS adds .show */
+    opacity: 0; 
+    pointer-events: none;
+}
+
+#backToTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 2. Prevent Bootstrap Modals/Toasts from creating dead space at the bottom */
+#imageModal, .modal-backdrop {
+    display: none; 
+}
+
+#newsletterToast, .toast-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+}
+
+/* 3. Ensure the JS-generated progress bar floats and doesn't push the footer up */
+.scroll-progress {
+    position: fixed !important;
+    top: 0 !important; /* Locks to top of screen */
+    left: 0 !important;
+    height: 4px !important;
+    z-index: 9999 !important;
+}
+
+/* 4. Cut off any lingering invisible particle overflows */
+html, body {
+    overflow-x: hidden !important;
+    background-color: #0b0f19; /* Matches your dark cosmic theme so even if it stretches, it isn't stark white */
+}
+
+@media (max-width: 991px) {
+    /* 1. Completely hide all navigation links on mobile */
+    .navbar-collapse,
+    .cosmic-nav-links,
+    .collapse {
+        display: none !important;
+    }
+
+    /* 2. Completely remove the burger menu button on mobile */
+    .navbar-toggler,
+    .cosmic-burger {
+        display: none !important;
+    }
+
+    /* 3. Remove the extra dark mode toggle/buttons next to the menu on mobile */
+    .quantum-sphere-container {
+        display: none !important;
+    }
 }

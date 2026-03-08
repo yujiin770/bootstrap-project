@@ -141,69 +141,109 @@ function openModal(imgSrc) {
 window.openModal = openModal;
 
 // =========================================
-// NEWSLETTER TOAST
+// NEWSLETTER SUBSCRIPTION FUNCTION
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Make sure your button has id="newsletterBtn" and input has id="newsletterEmail"
     const newsletterBtn = document.getElementById('newsletterBtn');
-    if (newsletterBtn) {
-        newsletterBtn.addEventListener('click', () => {
-            const email = document.getElementById('newsletterEmail');
-            if (email && email.value) {
-                const toastElement = document.getElementById('newsletterToast');
-                if (toastElement) {
-                    const toast = new bootstrap.Toast(toastElement);
-                    toast.show();
-                    
-                    // Quantum success animation
-                    toastElement.style.transform = 'scale(0) rotate(-180deg)';
-                    setTimeout(() => {
-                        toastElement.style.transform = 'scale(1) rotate(0)';
-                    }, 100);
-                }
-                
-                email.value = '';
-            } else if (email) {
-                // Shake animation for empty input
-                email.style.animation = 'shake 0.5s';
+    const emailInput = document.getElementById('newsletterEmail');
+
+    if (newsletterBtn && emailInput) {
+        newsletterBtn.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            const email = emailInput.value.trim();
+
+            if (email) {
+                // 1. Trigger Loading Animation
+                newsletterBtn.classList.add('loading');
+                const originalContent = newsletterBtn.innerHTML;
+                newsletterBtn.innerHTML = '<span class="btn-text">Subscribing...</span>';
+
+                // 2. Simulate sending data (2 second delay)
                 setTimeout(() => {
-                    email.style.animation = '';
+                    // 3. Trigger Success Animation
+                    newsletterBtn.classList.remove('loading');
+                    newsletterBtn.classList.add('success');
+                    newsletterBtn.innerHTML = '<span class="btn-text">Subscribed! <i class="fas fa-check"></i></span>';
+
+                    // 4. Show the Toast Notification
+                    const toastElement = document.getElementById('newsletterToast');
+                    if (toastElement && typeof bootstrap !== 'undefined') {
+                        const toast = new bootstrap.Toast(toastElement);
+                        toast.show();
+                    }
+
+                    // 5. Reset button and clear input after 3 seconds
+                    setTimeout(() => {
+                        newsletterBtn.classList.remove('success');
+                        newsletterBtn.innerHTML = originalContent;
+                        emailInput.value = '';
+                    }, 3000);
+
+                }, 2000);
+
+            } else {
+                // Shake animation if input is empty
+                emailInput.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    emailInput.style.animation = '';
                 }, 500);
             }
         });
     }
 });
-
 // =========================================
-// CONTACT FORM WITH SWEETALERT
+// CONTACT FORM SUBMIT FUNCTION
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Make sure your form has id="contactForm"
     const contactForm = document.getElementById('contactForm');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const isDark = document.body.classList.contains('dark-mode');
-            
-            // Check if Swal is available
-            if (typeof Swal !== 'undefined') {
-                // Quantum success animation
-                Swal.fire({
-                    title: '<span class="quantum-swal-title">Message Sent!</span>',
-                    html: '<div class="quantum-swal-content"><i class="fas fa-bolt"></i> Thank you for reaching out. We will get back to you soon.</div>',
-                    icon: 'success',
-                    confirmButtonColor: '#00b4d8',
-                    background: isDark ? '#0d1b2a' : '#ffffff',
-                    color: isDark ? '#ffffff' : '#212529',
-                    showClass: {
-                        popup: 'animate__animated animate__zoomIn animate__fast'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__zoomOut'
-                    }
-                });
-            } else {
-                alert('Message sent! Thank you for reaching out.');
+            e.preventDefault(); // Prevent page refresh
+
+            const submitBtn = this.querySelector('.quantum-submit-btn');
+            const originalContent = submitBtn.innerHTML;
+
+            // 1. Trigger Loading Animation
+            if (submitBtn) {
+                submitBtn.classList.add('loading');
             }
-            this.reset();
+
+            // 2. Simulate sending message (2 second delay)
+            setTimeout(() => {
+                // 3. Trigger Success Animation
+                if (submitBtn) {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.classList.add('success');
+                }
+
+                // 4. Show SweetAlert popup
+                if (typeof Swal !== 'undefined') {
+                    const isDark = document.body.classList.contains('dark-mode');
+                    Swal.fire({
+                        title: '<span class="quantum-swal-title">Message Sent!</span>',
+                        html: '<div class="quantum-swal-content"><i class="fas fa-bolt"></i> Thank you for reaching out. We will get back to you soon.</div>',
+                        icon: 'success',
+                        confirmButtonColor: '#00b4d8',
+                        background: isDark ? '#0d1b2a' : '#ffffff',
+                        color: isDark ? '#ffffff' : '#212529'
+                    });
+                } else {
+                    alert('Message sent! Thank you for reaching out.');
+                }
+
+                // 5. Clear the form and reset button
+                contactForm.reset();
+                setTimeout(() => {
+                    if (submitBtn) {
+                        submitBtn.classList.remove('success');
+                        submitBtn.innerHTML = originalContent;
+                    }
+                }, 3000);
+
+            }, 2000);
         });
     }
 });
@@ -856,52 +896,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
 });
 
-// =========================================
-// FOOTER CLOCK
-// =========================================
-function initFooterClock() {
-    const clockElement = document.querySelector('#footerClock span');
-    if (!clockElement) return;
-    
-    function updateClock() {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        const seconds = now.getSeconds().toString().padStart(2, '0');
-        clockElement.textContent = `${hours}:${minutes}:${seconds} UTC`;
-    }
-    
-    updateClock();
-    setInterval(updateClock, 1000);
-}
-
-// Call this in your DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    initFooterClock();
-    
-    // Generate footer particles
-    const footerParticles = document.getElementById('footerParticles');
-    if (footerParticles) {
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'footer-particle';
-            particle.style.cssText = `
-                position: absolute;
-                width: ${Math.random() * 4 + 1}px;
-                height: ${Math.random() * 4 + 1}px;
-                background: ${Math.random() > 0.5 ? '#00b4d8' : '#800080'};
-                border-radius: 50%;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                opacity: ${Math.random() * 0.5};
-                animation: floatParticle ${Math.random() * 10 + 10}s linear infinite;
-                animation-delay: ${Math.random() * 5}s;
-                pointer-events: none;
-            `;
-            footerParticles.appendChild(particle);
-        }
-    }
-});
 
 // =========================================
 // FOOTER CLOCK
