@@ -2366,3 +2366,3766 @@ body {
     }
 }
 
+/* =========================================
+   COSMIC PLUGINS SECTION STYLES
+   ========================================= */
+
+.cosmic-plugins-section {
+    position: relative;
+    padding: 8rem 0;
+    background: radial-gradient(ellipse at 20% 30%, #0a0f1e, #030514);
+    overflow: hidden;
+    min-height: 100vh;
+    perspective: 2000px;
+}
+
+/* Background Effects */
+.plugins-nebula {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(0, 180, 216, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(128, 0, 128, 0.15) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, rgba(0, 180, 216, 0.02) 0px, rgba(0, 180, 216, 0.02) 2px, transparent 2px, transparent 10px);
+    animation: nebulaDrift 60s linear infinite;
+}
+
+.plugins-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 10px 20px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 30px 150px, #fff, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 80px 250px, #00b4d8, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 150px 350px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 220px 80px, #800080, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 320px 420px, #fff, rgba(0,0,0,0));
+    background-size: 400px 400px;
+    opacity: 0.6;
+    animation: starsPulse 4s ease-in-out infinite;
+}
+
+.cosmic-vortex {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(from 0deg, transparent, rgba(0, 180, 216, 0.1), transparent, rgba(128, 0, 128, 0.1), transparent);
+    animation: vortexRotate 20s linear infinite;
+    filter: blur(50px);
+}
+
+/* Energy Orbs */
+.energy-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 180, 216, 0.4), transparent 70%);
+    filter: blur(40px);
+    animation: orbFloat 15s ease-in-out infinite;
+}
+
+.orb-1 { top: 10%; left: 5%; }
+.orb-2 { bottom: 20%; right: 10%; background: radial-gradient(circle at 30% 30%, rgba(128, 0, 128, 0.4), transparent 70%); animation-delay: -5s; }
+.orb-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; opacity: 0.2; animation: orbPulse 8s ease-in-out infinite; }
+
+/* Section Header */
+.plugins-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+    background: rgba(0, 180, 216, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-particle {
+    color: #00b4d8;
+    font-size: 1.2rem;
+    animation: particleSpin 3s linear infinite;
+}
+
+.badge-glow-text {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00b4d8;
+}
+
+.plugins-main-title {
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.title-quantum {
+    position: relative;
+    color: #fff;
+    text-shadow: 0 0 20px #00b4d8;
+    animation: titleGlitch 5s infinite;
+}
+
+.title-quantum::before,
+.title-quantum::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.title-quantum::before {
+    color: #800080;
+    z-index: -1;
+    animation: glitchShift 3s infinite;
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.plugins-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.subtitle-particle {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b4d8, transparent);
+    animation: particleLine 3s ease-in-out infinite;
+}
+
+.glitch-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+/* Quantum Meter */
+.quantum-meter {
+    width: 300px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 10px;
+}
+
+.meter-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    animation: meterPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 20px #00b4d8;
+}
+
+.meter-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.meter-label { color: rgba(255, 255, 255, 0.6); }
+.meter-value { color: #00b4d8; }
+
+/* Plugins Grid */
+.plugins-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Plugin Card */
+.plugin-card {
+    position: relative;
+    height: 320px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.plugin-card:hover {
+    z-index: 100;
+}
+
+.card-cosmic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 20, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.plugin-card:hover .card-cosmic {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    border-color: #00b4d8;
+    box-shadow: 0 30px 60px rgba(0, 180, 216, 0.3);
+}
+
+/* Holographic Overlay */
+.holo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 180, 216, 0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.plugin-card:hover .holo-overlay {
+    opacity: 1;
+}
+
+.scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b4d8, transparent);
+    animation: scan 3s linear infinite;
+}
+
+/* Card Front/Back */
+.card-front,
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1.5rem;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #0a1a2a, #1a2a3a);
+}
+
+.plugin-card.flipped .card-front {
+    transform: rotateY(180deg);
+}
+
+.plugin-card.flipped .card-back {
+    transform: rotateY(360deg);
+}
+
+/* Plugin Icon */
+.plugin-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.plugin-icon i {
+    font-size: 2.5rem;
+    color: #00b4d8;
+    position: relative;
+    z-index: 2;
+}
+
+.icon-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringPulse 2s ease-out infinite;
+}
+
+.icon-ring.delay-1 {
+    animation-delay: -1s;
+}
+
+.pulse-icon {
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+/* Plugin Title */
+.plugin-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px #00b4d8;
+}
+
+.plugin-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.2rem 0.8rem;
+    background: rgba(0, 180, 216, 0.2);
+    border: 1px solid #00b4d8;
+    border-radius: 20px;
+    color: #00b4d8;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.plugin-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Preview Indicator */
+.preview-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.indicator-dot.pulse {
+    animation: dotPulse 0.5s ease-in-out infinite;
+}
+
+.indicator-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+/* Energy Level */
+.energy-level {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: auto;
+}
+
+.level-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    animation: energyPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 10px #00b4d8;
+}
+
+/* Card Back Content */
+.back-content {
+    text-align: center;
+    color: #fff;
+}
+
+.quantum-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: rgba(0, 180, 216, 0.2);
+    border: 2px solid #00b4d8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logoSpin 10s linear infinite;
+}
+
+.quantum-logo i {
+    font-size: 2.5rem;
+    color: #00b4d8;
+}
+
+.back-content h4 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.back-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Demo Button */
+.demo-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.demo-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.5);
+}
+
+.demo-btn i {
+    margin-left: 0.5rem;
+}
+
+/* Special Card (Preloader) */
+.special-card .mini-portal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.mini-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00b4d8, #800080);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: miniCorePulse 1s ease-in-out infinite;
+}
+
+.mini-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #00b4d8;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: miniRingExpand 2s ease-out infinite;
+}
+
+.mini-ring.delay-1 { animation-delay: -0.5s; }
+.mini-ring.delay-2 { animation-delay: -1s; }
+
+/* Plugin Status Bar */
+.plugin-status-bar {
+    margin-top: 4rem;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-light.green {
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: statusBlink 2s ease-in-out infinite;
+}
+
+.status-text {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+}
+
+.quantum-clock {
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.quantum-clock i {
+    margin-right: 0.5rem;
+}
+
+/* Entanglement Lines */
+.entanglement-lines {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.plugin-card:hover .entanglement-lines {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+@keyframes ringPulse {
+    0% { width: 60px; height: 60px; opacity: 1; }
+    100% { width: 100px; height: 100px; opacity: 0; }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes energyPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes logoSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes miniCorePulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.3); }
+}
+
+@keyframes miniRingExpand {
+    0% { width: 30px; height: 30px; opacity: 1; }
+    100% { width: 60px; height: 60px; opacity: 0; }
+}
+
+@keyframes meterPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes titleGlitch {
+    0%, 100% { transform: skew(0deg); }
+    95% { transform: skew(2deg); }
+    96% { transform: skew(-2deg); }
+    97% { transform: skew(1deg); }
+}
+
+@keyframes glitchShift {
+    0%, 100% { transform: translate(0); }
+    95% { transform: translate(2px, -2px); }
+    96% { transform: translate(-2px, 1px); }
+}
+
+@keyframes particleLine {
+    0%, 100% { width: 50px; opacity: 0.5; }
+    50% { width: 100px; opacity: 1; }
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+}
+
+@keyframes orbPulse {
+    0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes starsPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes vortexRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes nebulaDrift {
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
+}
+
+@keyframes particleSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .grid-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .plugins-main-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .plugin-card {
+        height: 280px;
+    }
+    
+    .plugins-main-title {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+    
+    .plugin-status-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* =========================================
+   COSMIC CONTACT SECTION STYLES
+   ========================================= */
+
+.cosmic-contact-section {
+    position: relative;
+    padding: 8rem 0;
+    background: radial-gradient(ellipse at 50% 30%, #0a0f1e, #030514);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Background Effects */
+.contact-nebula {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 180, 216, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(128, 0, 128, 0.2) 0%, transparent 50%);
+    animation: contactNebulaDrift 30s ease-in-out infinite;
+}
+
+.contact-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 15px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 75px 140px, #00b4d8, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 180px 200px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 240px 380px, #800080, rgba(0,0,0,0));
+    background-size: 300px 300px;
+    opacity: 0.5;
+    animation: starsTwinkle 4s ease-in-out infinite;
+}
+
+.quantum-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg, 
+        rgba(0, 180, 216, 0.02) 0px, 
+        rgba(0, 180, 216, 0.02) 2px, 
+        transparent 2px, 
+        transparent 20px);
+    pointer-events: none;
+}
+
+/* Contact Orbs */
+.contact-orb {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: contactOrbFloat 20s ease-in-out infinite;
+}
+
+.contact-orb.orb-1 {
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, #00b4d8 0%, transparent 70%);
+}
+
+.contact-orb.orb-2 {
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle, #800080 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+.contact-orb.orb-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #00b4d8 0%, #800080 50%, transparent 80%);
+    animation: orbPulse 8s ease-in-out infinite;
+}
+
+/* Quantum Tunnel */
+.quantum-tunnel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(from 0deg, transparent, rgba(0, 180, 216, 0.05), transparent, rgba(128, 0, 128, 0.05), transparent);
+    animation: tunnelRotate 30s linear infinite;
+}
+
+/* Section Header */
+.contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+    background: rgba(0, 180, 216, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-particle {
+    color: #00b4d8;
+    font-size: 1.2rem;
+    animation: particleFlash 2s ease-in-out infinite;
+}
+
+.badge-glow-text {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00b4d8;
+}
+
+.contact-main-title {
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.title-wave {
+    position: relative;
+    color: #fff;
+    text-shadow: 0 0 20px #00b4d8;
+    animation: titleWave 3s ease-in-out infinite;
+}
+
+.title-wave::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #00b4d8;
+    opacity: 0.5;
+    filter: blur(10px);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contact-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.subtitle-line {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b4d8, transparent);
+}
+
+.glitch-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+/* Quantum Contact Card */
+.quantum-contact-card {
+    position: relative;
+    padding: 3rem;
+    background: rgba(10, 20, 30, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.quantum-contact-card:hover {
+    border-color: #00b4d8;
+    box-shadow: 0 30px 60px rgba(0, 180, 216, 0.3);
+}
+
+.card-holo-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        transparent 0%, 
+        rgba(0, 180, 216, 0.1) 25%, 
+        transparent 50%,
+        rgba(128, 0, 128, 0.1) 75%,
+        transparent 100%);
+    animation: holoShift 10s linear infinite;
+    pointer-events: none;
+}
+
+.card-scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00b4d8, #800080, #00b4d8, transparent);
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+}
+
+/* Contact Card Header */
+.contact-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+.energy-signature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sig-line {
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #00b4d8, transparent);
+}
+
+.sig-text {
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+.quantum-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 1rem;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    border-radius: 30px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+.status-text {
+    color: #00ff00;
+    font-size: 0.8rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Quantum Field Indicator */
+.quantum-field-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.field-particle {
+    width: 4px;
+    height: 4px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: fieldParticle 2s ease-in-out infinite;
+}
+
+.field-particle.delay-1 { animation-delay: -0.5s; }
+.field-particle.delay-2 { animation-delay: -1s; }
+
+/* Magnetic Fields */
+.magnetic-field-wrapper {
+    position: relative;
+}
+
+.magnetic-field-container {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.magnetic-field-container:hover {
+    border-color: #00b4d8;
+    transform: translateY(-2px);
+}
+
+.magnetic-field-container:focus-within {
+    border-color: #800080;
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.3);
+}
+
+.field-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        rgba(0, 180, 216, 0.2) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.magnetic-field-container:hover .field-aura {
+    opacity: 1;
+}
+
+/* Quantum Label */
+.quantum-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+}
+
+.quantum-label i {
+    color: #00b4d8;
+    font-size: 1rem;
+}
+
+/* Cosmic Input */
+.input-cosmic {
+    position: relative;
+}
+
+.quantum-input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 15px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.quantum-input:focus {
+    outline: none;
+    border-color: #800080;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.3);
+}
+
+.quantum-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.input-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.quantum-input:focus + .input-glow {
+    opacity: 1;
+}
+
+.input-particle {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    background: #00b4d8;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: inputParticle 2s ease-in-out infinite;
+}
+
+/* Field Validator */
+.field-validator {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.magnetic-field-container.valid .field-validator {
+    opacity: 1;
+}
+
+.magnetic-field-container.valid .validator-icon {
+    color: #00ff00;
+}
+
+.magnetic-field-container.invalid .validator-icon {
+    color: #ff0000;
+}
+
+/* Message Energy Meter */
+.message-energy-meter {
+    margin-top: 1rem;
+}
+
+.meter-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.meter-bar {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    transition: width 0.3s ease;
+}
+
+/* Quantum Consent */
+.quantum-consent {
+    position: relative;
+    padding: 1rem;
+}
+
+.consent-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.consent-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.consent-checkmark {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 180, 216, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.consent-container:hover .consent-checkmark {
+    border-color: #00b4d8;
+}
+
+.consent-container input:checked ~ .consent-checkmark {
+    background: #00b4d8;
+    border-color: #00b4d8;
+}
+
+.consent-checkmark i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.consent-container input:checked ~ .consent-checkmark i {
+    opacity: 1;
+}
+
+.consent-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.quantum-link {
+    color: #00b4d8;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.quantum-link:hover {
+    color: #800080;
+    text-shadow: 0 0 10px #800080;
+}
+
+.consent-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(0, 180, 216, 0.3), transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.consent-container:hover + .consent-aura {
+    width: 300px;
+    height: 300px;
+}
+
+/* Quantum Submit Button */
+.submit-container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.quantum-submit-btn {
+    position: relative;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.quantum-submit-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.4);
+}
+
+.quantum-submit-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Button Particles */
+.btn-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: btnParticle 1s ease-out infinite;
+}
+
+.btn-particle:nth-child(1) { top: 20%; left: 10%; }
+.btn-particle:nth-child(2) { top: 60%; right: 15%; animation-delay: -0.3s; }
+.btn-particle:nth-child(3) { bottom: 25%; left: 20%; animation-delay: -0.6s; }
+
+/* Button Content */
+.btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rocket-icon {
+    position: absolute;
+    left: 100%;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.quantum-submit-btn:hover .rocket-icon {
+    left: 120%;
+    opacity: 1;
+}
+
+/* Button Rings */
+.btn-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: btnRing 2s ease-out infinite;
+}
+
+.btn-ring.delay-1 { animation-delay: -0.5s; }
+.btn-ring.delay-2 { animation-delay: -1s; }
+
+/* Button Energy Field */
+.btn-energy-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        rgba(255, 255, 255, 0.8) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.quantum-submit-btn:hover .btn-energy-field {
+    opacity: 0.3;
+}
+
+/* Button Status */
+.button-status {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.quantum-submit-btn.sent + .button-status {
+    opacity: 1;
+}
+
+/* Contact Card Footer */
+.contact-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+.encryption-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(0, 255, 0, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+.encryption-badge i {
+    animation: lockPulse 2s ease-in-out infinite;
+}
+
+.response-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+/* Cosmic Information Card */
+.cosmic-info-card {
+    position: relative;
+    padding: 3rem;
+    background: rgba(10, 20, 30, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(128, 0, 128, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.cosmic-info-card:hover {
+    border-color: #800080;
+    box-shadow: 0 30px 60px rgba(128, 0, 128, 0.3);
+}
+
+.info-holo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        transparent 0%, 
+        rgba(128, 0, 128, 0.1) 25%, 
+        transparent 50%,
+        rgba(0, 180, 216, 0.1) 75%,
+        transparent 100%);
+    animation: holoShift 15s linear infinite reverse;
+}
+
+.info-vortex {
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(from 0deg, #00b4d8, #800080, #00b4d8);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.2;
+    animation: vortexSpin 20s linear infinite;
+}
+
+/* Quantum Avatar */
+.quantum-avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+}
+
+.avatar-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbitRotate 10s linear infinite;
+}
+
+.orbit-ring.delay-1 {
+    width: 120%;
+    height: 120%;
+    border-color: rgba(128, 0, 128, 0.3);
+    animation-duration: 15s;
+    animation-direction: reverse;
+}
+
+.orbit-ring.delay-2 {
+    width: 140%;
+    height: 140%;
+    border-color: rgba(255, 255, 255, 0.1);
+    animation-duration: 20s;
+}
+
+.avatar-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: corePulse 2s ease-in-out infinite;
+}
+
+.avatar-core i {
+    font-size: 2.5rem;
+    color: #fff;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.avatar-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+}
+
+.avatar-particles .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: avatarParticle 3s ease-out infinite;
+}
+
+.avatar-particles .particle:nth-child(1) { top: 0; left: 50%; }
+.avatar-particles .particle:nth-child(2) { top: 50%; right: 0; animation-delay: -1s; }
+.avatar-particles .particle:nth-child(3) { bottom: 0; left: 50%; animation-delay: -2s; }
+
+/* Info Title */
+.info-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px #800080;
+}
+
+.info-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.divider-star {
+    color: #00b4d8;
+    animation: starSpin 3s linear infinite;
+}
+
+.divider-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #00b4d8, #800080, #00b4d8);
+}
+
+/* Contact Details */
+.contact-details {
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.detail-item:hover {
+    border-color: #800080;
+    transform: translateX(10px);
+}
+
+.detail-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 50%;
+}
+
+.detail-icon i {
+    font-size: 1.5rem;
+    color: #00b4d8;
+    z-index: 2;
+}
+
+.icon-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00b4d8;
+    border-radius: 50%;
+    animation: ripple 2s ease-out infinite;
+}
+
+.detail-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.detail-value {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Newsletter Container */
+.newsletter-container {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(128, 0, 128, 0.3);
+    border-radius: 20px;
+}
+
+.newsletter-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #800080;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+}
+
+.newsletter-form-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-field {
+    position: relative;
+    flex: 1;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(128, 0, 128, 0.3);
+    border-radius: 10px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #800080;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.3);
+}
+
+.input-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.newsletter-input:focus + .input-aura {
+    opacity: 1;
+}
+
+.newsletter-btn {
+    position: relative;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #800080, #00b4d8);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.newsletter-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(128, 0, 128, 0.5);
+}
+
+.btn-energy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #fff, transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+}
+
+.newsletter-btn:hover .btn-energy {
+    width: 200px;
+    height: 200px;
+    opacity: 0.3;
+}
+
+.newsletter-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+/* Quantum Social Links */
+.quantum-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-quantum {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.social-quantum:hover {
+    background: #00b4d8;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.4);
+}
+
+.social-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #00b4d8, transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.social-quantum:hover .social-aura {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+}
+
+/* Quantum Wave Divider */
+.quantum-wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.quantum-wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+}
+
+.wave-fill {
+    fill: rgba(0, 180, 216, 0.1);
+    animation: waveShift 10s ease-in-out infinite;
+}
+
+/* Contact Particles */
+.contact-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes contactNebulaDrift {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(2%, 2%); }
+}
+
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes contactOrbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+}
+
+@keyframes tunnelRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes particleFlash {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes titleWave {
+    0%, 100% { transform: skew(0deg); }
+    50% { transform: skew(2deg); }
+}
+
+@keyframes titleGlow {
+    0%, 100% { opacity: 0.5; filter: blur(10px); }
+    50% { opacity: 0.8; filter: blur(15px); }
+}
+
+@keyframes holoShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+@keyframes scanLine {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes fieldParticle {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-10px) scale(0.5); opacity: 0.5; }
+}
+
+@keyframes inputParticle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; transform: translateY(-50%) scale(0.8); }
+}
+
+@keyframes btnParticle {
+    0% { transform: scale(1); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes btnRing {
+    0% { width: 0; height: 0; opacity: 1; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+}
+
+@keyframes lockPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes lockPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes vortexSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbitRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes corePulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px #00b4d8; }
+    50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 50px #800080; }
+}
+
+@keyframes avatarParticle {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(var(--x, 50px), var(--y, 50px)); opacity: 0; }
+}
+
+@keyframes starSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+    0% { width: 50px; height: 50px; opacity: 1; }
+    100% { width: 100px; height: 100px; opacity: 0; }
+}
+
+@keyframes waveShift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .contact-main-title {
+        font-size: 3rem;
+    }
+    
+    .quantum-contact-card,
+    .cosmic-info-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-main-title {
+        font-size: 2.5rem;
+        flex-direction: column;
+    }
+    
+    .contact-card-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .newsletter-form-wrapper {
+        flex-direction: column;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cosmic-contact-section {
+        padding: 4rem 0;
+    }
+    
+    .contact-badge {
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .glitch-subtitle {
+        font-size: 1rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .detail-text {
+        align-items: center;
+    }
+    
+    .quantum-avatar-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .avatar-core {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .avatar-core i {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .quantum-contact-card,
+    .cosmic-info-card {
+        padding: 1.5rem;
+    }
+    
+    .btn-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .quantum-social-links {
+        flex-wrap: wrap;
+    }
+    
+    .contact-details {
+        margin-bottom: 1rem;
+    }
+    
+    .newsletter-container {
+        padding: 1rem;
+    }
+}
+
+/* Loading States */
+.quantum-submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.quantum-submit-btn.loading .btn-text {
+    opacity: 0;
+}
+
+.quantum-submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: buttonLoad 1s linear infinite;
+}
+
+@keyframes buttonLoad {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success State */
+.quantum-submit-btn.success {
+    background: linear-gradient(135deg, #00ff00, #00b4d8);
+}
+
+.quantum-submit-btn.success .btn-text {
+    animation: successPulse 1s ease-in-out;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Error State */
+.quantum-submit-btn.error {
+    background: linear-gradient(135deg, #ff0000, #800080);
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Tooltip Customization */
+.cosmic-popover-trigger {
+    margin-left: 0.5rem;
+    cursor: help;
+    animation: helpPulse 2s ease-in-out infinite;
+}
+
+@keyframes helpPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Form Validation Visual Feedback */
+.magnetic-field-container.valid .quantum-input {
+    border-color: #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.magnetic-field-container.invalid .quantum-input {
+    border-color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+/* Focus Visible State */
+.quantum-input:focus-visible {
+    outline: none;
+}
+
+/* Disabled State */
+.quantum-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Placeholder Styling */
+.quantum-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Selection Styling */
+.quantum-input::selection {
+    background: #00b4d8;
+    color: #fff;
+}
+
+/* Print Styles */
+@media print {
+    .cosmic-contact-section {
+        background: #fff;
+        color: #000;
+    }
+    
+    .quantum-contact-card,
+    .cosmic-info-card {
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+}
+
+/* =========================================
+   COSMIC FOOTER STYLES - MATCHING THEME
+   ========================================= */
+
+.cosmic-footer {
+    position: relative;
+    padding: 4rem 0 2rem;
+    background: linear-gradient(135deg, #030514 0%, #0a0f1e 50%, #1a0f2a 100%);
+    overflow: hidden;
+    color: #fff;
+    border-top: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+/* Background Effects */
+.footer-nebula {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 180, 216, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(128, 0, 128, 0.1) 0%, transparent 50%);
+    animation: footerNebulaDrift 30s ease-in-out infinite;
+}
+
+.footer-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 15px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 75px 140px, #00b4d8, rgba(0,0,0,0)),
+        radial-gradient(3px 3px at 180px 200px, #fff, rgba(0,0,0,0));
+    background-size: 300px 300px;
+    opacity: 0.3;
+    animation: starsTwinkle 4s ease-in-out infinite;
+}
+
+/* Footer Orbs */
+.footer-orb {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.2;
+    animation: footerOrbFloat 20s ease-in-out infinite;
+}
+
+.footer-orb.orb-1 {
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, #00b4d8 0%, transparent 70%);
+}
+
+.footer-orb.orb-2 {
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle, #800080 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+/* Footer Grid */
+.footer-grid {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Brand Column */
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border-radius: 12px;
+    transform: rotate(45deg);
+    transition: all 0.4s;
+}
+
+.footer-logo-icon i {
+    transform: rotate(-45deg);
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s;
+    border-radius: 50%;
+}
+
+.footer-logo-container:hover .logo-aura {
+    width: 100px;
+    height: 100px;
+}
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-line {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.logo-line:first-child {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00b4d8;
+}
+
+.logo-line.small {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    opacity: 0.7;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Footer Stats */
+.footer-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-stat {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00b4d8;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 15px #00b4d8;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+/* Footer Titles */
+.footer-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.title-particle {
+    color: #00b4d8;
+    font-size: 1rem;
+    animation: particleSpin 3s linear infinite;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-link i {
+    font-size: 0.8rem;
+    color: #800080;
+    transition: all 0.3s;
+}
+
+.footer-link:hover {
+    color: #00b4d8;
+    transform: translateX(8px);
+}
+
+.footer-link:hover i {
+    color: #00b4d8;
+    transform: scale(1.2);
+}
+
+/* Newsletter */
+.footer-newsletter {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-field {
+    position: relative;
+    flex: 1;
+}
+
+.newsletter-input-footer {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.newsletter-input-footer:focus {
+    outline: none;
+    border-color: #800080;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.3);
+}
+
+.input-glow-footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.newsletter-input-footer:focus + .input-glow-footer {
+    opacity: 1;
+}
+
+.newsletter-btn-footer {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-btn-footer:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.5);
+}
+
+.newsletter-btn-footer i {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-energy-footer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #fff, transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+}
+
+.newsletter-btn-footer:hover .btn-energy-footer {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+}
+
+/* Social Links */
+.footer-social {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.social-link-footer {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.social-link-footer:hover {
+    background: #00b4d8;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.4);
+}
+
+.social-aura-footer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #00b4d8, transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.social-link-footer:hover .social-aura-footer {
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+}
+
+/* Footer Divider */
+.footer-divider {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.divider-wave {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #00b4d8, 
+        #800080, 
+        #00b4d8, 
+        transparent);
+    animation: waveShift 3s ease-in-out infinite;
+}
+
+/* Bottom Footer */
+.footer-bottom {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.copyright i {
+    color: #800080;
+    animation: crownPulse 2s ease-in-out infinite;
+}
+
+.copyright-particle {
+    color: #00b4d8;
+    animation: particleSpin 3s linear infinite;
+}
+
+.footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bottom-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.bottom-link:hover {
+    color: #00b4d8;
+    text-shadow: 0 0 10px #00b4d8;
+}
+
+.link-divider {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-clock {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.3rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 30px;
+}
+
+.footer-clock i {
+    animation: clockPulse 2s ease-in-out infinite;
+}
+
+/* Footer Particles */
+.footer-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes footerNebulaDrift {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(2%, 2%); }
+}
+
+@keyframes footerOrbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+}
+
+@keyframes crownPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes clockPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+    }
+    
+    .footer-stats {
+        justify-content: center;
+    }
+    
+    .footer-logo-container {
+        justify-content: center;
+    }
+    
+    .footer-description {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-title {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   COSMIC OFFCANVAS STYLES
+   ========================================= */
+
+.cosmic-offcanvas {
+    background: linear-gradient(135deg, #0a0f1e 0%, #1a0f2a 100%) !important;
+    border-left: 1px solid rgba(0, 180, 216, 0.3) !important;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    width: 450px !important;
+    max-width: 100%;
+}
+
+.offcanvas-nebula {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(128, 0, 128, 0.15) 0%, transparent 50%);
+    animation: offcanvasNebula 30s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.offcanvas-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 15px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 75px 140px, #00b4d8, rgba(0,0,0,0));
+    background-size: 200px 200px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.offcanvas-orb {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+    animation: offcanvasOrbFloat 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.offcanvas-orb.orb-1 {
+    top: -50px;
+    right: -50px;
+    background: radial-gradient(circle, #00b4d8 0%, transparent 70%);
+}
+
+.offcanvas-orb.orb-2 {
+    bottom: -50px;
+    left: -50px;
+    background: radial-gradient(circle, #800080 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+.offcanvas-header {
+    padding: 2rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.offcanvas-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title-icon-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border-radius: 12px;
+    transform: rotate(45deg);
+}
+
+.title-icon-container i {
+    transform: rotate(-45deg);
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.icon-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s;
+    border-radius: 50%;
+}
+
+.title-icon-container:hover .icon-aura {
+    width: 80px;
+    height: 80px;
+}
+
+.title-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.title-line {
+    display: block;
+    color: #fff;
+}
+
+.title-line.gradient {
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-timeline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+.quantum-close-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quantum-close-btn:hover {
+    background: #00b4d8;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.close-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #00b4d8, transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.quantum-close-btn:hover .close-aura {
+    width: 60px;
+    height: 60px;
+    opacity: 0.3;
+}
+
+/* Quantum Timeline Visual */
+.quantum-timeline-visual {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.timeline-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.timeline-node.start .node-dot,
+.timeline-node.end .node-dot {
+    width: 16px;
+    height: 16px;
+    background: #00b4d8;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin: 0.5rem 0;
+    position: relative;
+    animation: nodePulse 2s infinite;
+}
+
+.timeline-node.end .node-dot {
+    background: #800080;
+}
+
+.node-year {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.node-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.timeline-progress {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    border-radius: 2px;
+    animation: progressPulse 2s infinite;
+}
+
+/* Holographic Image */
+.holographic-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.image-holo-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(0, 180, 216, 0.2) 50%, 
+        transparent 70%);
+    animation: holoShift 4s linear infinite;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cosmic-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.8) contrast(1.2);
+    transition: all 0.5s;
+}
+
+.holographic-image-wrapper:hover .cosmic-image {
+    transform: scale(1.05);
+    filter: brightness(1) contrast(1.3);
+}
+
+.image-scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00b4d8, #800080, #00b4d8, transparent);
+    animation: imageScan 4s linear infinite;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.image-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.image-particles .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: particleFloat 3s ease-out infinite;
+}
+
+.image-particles .particle:nth-child(1) { top: 20%; left: 30%; }
+.image-particles .particle:nth-child(2) { top: 60%; left: 70%; animation-delay: -1s; }
+.image-particles .particle:nth-child(3) { top: 80%; left: 20%; animation-delay: -2s; }
+.image-particles .particle:nth-child(4) { top: 40%; left: 80%; animation-delay: -0.5s; }
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: #fff;
+    z-index: 5;
+}
+
+.caption-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.caption-energy {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.energy-dot {
+    width: 4px;
+    height: 4px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: energyDot 1s infinite;
+}
+
+.energy-dot:nth-child(2) { animation-delay: -0.3s; }
+.energy-dot:nth-child(3) { animation-delay: -0.6s; }
+
+/* History Cards */
+.history-content {
+    margin: 2rem 0;
+}
+
+.history-card {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.history-card:hover {
+    transform: translateX(10px);
+    border-color: #00b4d8;
+    box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+}
+
+.history-card.present {
+    border-color: #800080;
+    background: linear-gradient(135deg, rgba(128, 0, 128, 0.1), rgba(0, 180, 216, 0.1));
+}
+
+.card-year-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.2rem 0.8rem;
+    background: rgba(0, 180, 216, 0.2);
+    border: 1px solid #00b4d8;
+    border-radius: 20px;
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-content i {
+    font-size: 2rem;
+    color: #00b4d8;
+    animation: iconFloat 2s infinite;
+}
+
+.card-content h4 {
+    margin: 0 0 0.5rem;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.card-content p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.card-energy-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    width: 40%;
+    animation: energyPulse 2s infinite;
+}
+
+/* Quantum Stats Panel */
+.quantum-stats-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00b4d8;
+    text-shadow: 0 0 20px #00b4d8;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.stat-divider {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, #800080, transparent);
+}
+
+/* Wormhole Close Button */
+.wormhole-close-btn {
+    position: relative;
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.wormhole-close-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(0, 180, 216, 0.5);
+}
+
+.btn-wormhole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.8s;
+    border-radius: 50%;
+}
+
+.wormhole-close-btn:hover .btn-wormhole {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, #fff 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.wormhole-close-btn:hover .btn-particles {
+    opacity: 0.3;
+    animation: particleSpin 1s infinite;
+}
+
+/* =========================================
+   COSMIC MODAL STYLES
+   ========================================= */
+
+.cosmic-modal .modal-content {
+    background: transparent;
+    border: none;
+}
+
+.cosmic-modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #0a0f1e, #1a0f2a);
+    border: 2px solid rgba(0, 180, 216, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-portal-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.portal-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 3px solid rgba(0, 180, 216, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: portalRingExpand 4s ease-out infinite;
+}
+
+.portal-ring.delay-1 {
+    width: 300px;
+    height: 300px;
+    border-color: rgba(128, 0, 128, 0.1);
+    animation-delay: -1s;
+}
+
+.portal-ring.delay-2 {
+    width: 400px;
+    height: 400px;
+    border-color: rgba(255, 255, 255, 0.05);
+    animation-delay: -2s;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    padding: 1.5rem;
+}
+
+.modal-energy-signature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sig-line {
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00b4d8);
+}
+
+.sig-text {
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+.modal-quantum-close {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.modal-quantum-close:hover {
+    background: #00b4d8;
+    transform: rotate(90deg);
+}
+
+.quantum-image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.quantum-preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.5s;
+}
+
+.image-scan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(0, 180, 216, 0.1) 50%, 
+        transparent 70%);
+    animation: scanOverlay 3s linear infinite;
+    pointer-events: none;
+}
+
+.zoom-indicators {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.zoom-lens {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(0, 180, 216, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: zoomLens 2s ease-out infinite;
+}
+
+.zoom-lens.delay-1 {
+    width: 80px;
+    height: 80px;
+    animation-delay: -1s;
+}
+
+.image-info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 50px;
+}
+
+.info-left,
+.info-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.resolution {
+    color: #00b4d8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 180, 216, 0.2);
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.modal-action-btn {
+    position: relative;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.modal-action-btn:hover {
+    background: #00b4d8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+}
+
+.modal-action-btn.download:hover { background: #00b4d8; }
+.modal-action-btn.share:hover { background: #800080; }
+.modal-action-btn.close:hover { background: #ff4444; }
+
+/* =========================================
+   QUANTUM TOAST STYLES
+   ========================================= */
+
+.quantum-toast {
+    position: relative;
+    min-width: 350px;
+    background: linear-gradient(135deg, #0a0f1e, #1a0f2a);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transform-origin: right bottom;
+    animation: toastEnter 0.3s ease-out;
+}
+
+.toast-cosmic-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 180, 216, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.toast-content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    z-index: 2;
+}
+
+.toast-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.toast-icon.success {
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.toast-icon.info {
+    color: #00b4d8;
+    border: 1px solid #00b4d8;
+}
+
+.icon-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, currentColor 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s;
+    border-radius: 50%;
+}
+
+.toast-icon:hover .icon-ripple {
+    width: 60px;
+    height: 60px;
+    opacity: 0.3;
+}
+
+.toast-message {
+    flex: 1;
+}
+
+.toast-title {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: #00b4d8;
+    margin-bottom: 0.2rem;
+}
+
+.toast-body {
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.toast-quantum-close {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.toast-quantum-close:hover {
+    background: #ff4444;
+    transform: rotate(90deg);
+}
+
+.toast-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00b4d8, #800080);
+    animation: toastProgress 4s linear forwards;
+}
+
+/* =========================================
+   QUANTUM BACK TO TOP BUTTON
+   ========================================= */
+
+.quantum-back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 9999;
+}
+
+.quantum-back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    animation: backToTopAppear 0.5s ease-out;
+}
+
+.btn-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #00b4d8, #800080);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.btn-core i {
+    color: #fff;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 3;
+}
+
+.core-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: corePulse 2s infinite;
+}
+
+.btn-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringPulse 2s ease-out infinite;
+}
+
+.btn-ring.ring-1 {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #00b4d8;
+}
+
+.btn-ring.ring-2 {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #800080;
+    animation-delay: -0.5s;
+}
+
+.btn-ring.ring-3 {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #fff;
+    animation-delay: -1s;
+}
+
+.btn-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-particles .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00b4d8;
+    border-radius: 50%;
+    animation: particleOrbit 3s linear infinite;
+}
+
+.btn-particles .particle:nth-child(1) { transform: rotate(0deg) translateX(45px); }
+.btn-particles .particle:nth-child(2) { transform: rotate(90deg) translateX(45px); animation-delay: -0.75s; }
+.btn-particles .particle:nth-child(3) { transform: rotate(180deg) translateX(45px); animation-delay: -1.5s; }
+.btn-particles .particle:nth-child(4) { transform: rotate(270deg) translateX(45px); animation-delay: -2.25s; }
+
+.btn-tooltip {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00b4d8;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.quantum-back-to-top:hover .btn-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 90px;
+}
+
+.quantum-back-to-top:hover .btn-core {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 30px rgba(0, 180, 216, 0.5);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes offcanvasNebula {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.1) translate(2%, 2%); }
+}
+
+@keyframes offcanvasOrbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+}
+
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes imageScan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+@keyframes particleFloat {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(20px, -20px); opacity: 0; }
+}
+
+@keyframes energyDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.5); }
+}
+
+@keyframes portalRingExpand {
+    0% { width: 200px; height: 200px; opacity: 1; }
+    100% { width: 600px; height: 600px; opacity: 0; }
+}
+
+@keyframes scanOverlay {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes zoomLens {
+    0% { width: 50px; height: 50px; opacity: 1; }
+    100% { width: 150px; height: 150px; opacity: 0; }
+}
+
+@keyframes toastEnter {
+    0% { transform: translateX(100%) scale(0.5); opacity: 0; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes toastProgress {
+    0% { width: 100%; }
+    100% { width: 0%; }
+}
+
+@keyframes backToTopAppear {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes particleOrbit {
+    from { transform: rotate(0deg) translateX(45px); }
+    to { transform: rotate(360deg) translateX(45px); }
+}

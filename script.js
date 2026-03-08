@@ -855,3 +855,172 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 500);
 });
+
+// =========================================
+// FOOTER CLOCK
+// =========================================
+function initFooterClock() {
+    const clockElement = document.querySelector('#footerClock span');
+    if (!clockElement) return;
+    
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        clockElement.textContent = `${hours}:${minutes}:${seconds} UTC`;
+    }
+    
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+// Call this in your DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    initFooterClock();
+    
+    // Generate footer particles
+    const footerParticles = document.getElementById('footerParticles');
+    if (footerParticles) {
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'footer-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 1}px;
+                height: ${Math.random() * 4 + 1}px;
+                background: ${Math.random() > 0.5 ? '#00b4d8' : '#800080'};
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.5};
+                animation: floatParticle ${Math.random() * 10 + 10}s linear infinite;
+                animation-delay: ${Math.random() * 5}s;
+                pointer-events: none;
+            `;
+            footerParticles.appendChild(particle);
+        }
+    }
+});
+
+// =========================================
+// FOOTER CLOCK
+// =========================================
+function initFooterClock() {
+    const clockElement = document.querySelector('#footerClock span');
+    if (!clockElement) return;
+    
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        clockElement.textContent = `${hours}:${minutes}:${seconds} UTC`;
+    }
+    
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+// Call this in your DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    initFooterClock();
+    
+    // Generate footer particles
+    const footerParticles = document.getElementById('footerParticles');
+    if (footerParticles) {
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'footer-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 1}px;
+                height: ${Math.random() * 4 + 1}px;
+                background: ${Math.random() > 0.5 ? '#00b4d8' : '#800080'};
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: ${Math.random() * 0.5};
+                animation: floatParticle ${Math.random() * 10 + 10}s linear infinite;
+                animation-delay: ${Math.random() * 5}s;
+                pointer-events: none;
+            `;
+            footerParticles.appendChild(particle);
+        }
+    }
+});
+
+// =========================================
+// MODAL FUNCTIONS
+// =========================================
+
+// Open modal with image
+function openModal(imgSrc) {
+    const modalImage = document.getElementById('modalImage');
+    if (modalImage) {
+        modalImage.style.opacity = '0';
+        modalImage.style.transform = 'scale(0.5) rotate(-10deg)';
+        
+        setTimeout(() => {
+            modalImage.src = imgSrc;
+            modalImage.style.opacity = '1';
+            modalImage.style.transform = 'scale(1) rotate(0)';
+        }, 200);
+    }
+    
+    const modalElement = document.getElementById('imageModal');
+    if (modalElement) {
+        const imgModal = new bootstrap.Modal(modalElement);
+        imgModal.show();
+    }
+}
+
+// Download image
+function downloadImage() {
+    const modalImage = document.getElementById('modalImage');
+    if (modalImage && modalImage.src) {
+        // Create a temporary link
+        const link = document.createElement('a');
+        link.href = modalImage.src;
+        link.download = 'nebula-quantum-image.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Show toast notification
+        showPluginToast('Download Started', '✨ Image downloading from cosmos...');
+    }
+}
+
+// Share image
+function shareImage() {
+    const modalImage = document.getElementById('modalImage');
+    if (modalImage && modalImage.src) {
+        // Check if Web Share API is supported
+        if (navigator.share) {
+            navigator.share({
+                title: 'Nebula Studio Cosmic Image',
+                text: 'Check out this amazing cosmic image from Nebula Studio!',
+                url: modalImage.src
+            }).catch(() => {
+                // Fallback
+                copyToClipboard(modalImage.src);
+            });
+        } else {
+            // Fallback
+            copyToClipboard(modalImage.src);
+        }
+    }
+}
+
+// Copy to clipboard
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showPluginToast('Link Copied', '✨ Image link copied to clipboard!');
+    });
+}
+
+// Make functions globally available
+window.openModal = openModal;
+window.downloadImage = downloadImage;
+window.shareImage = shareImage;
